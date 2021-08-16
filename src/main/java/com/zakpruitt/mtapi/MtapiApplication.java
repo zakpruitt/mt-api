@@ -12,10 +12,4 @@ public class MtapiApplication {
 		SpringApplication.run(MtapiApplication.class, args);
 	}
 
-	@RequestMapping("/")
-	@ResponseBody
-	String home() {
-		return "Hello World!";
-	}
-
 }
