@@ -8,6 +8,7 @@ import org.springframework.lang.Nullable;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -27,8 +28,9 @@ public class CardParent extends AuditModel {
     private String rarity;
     @NotNull
     private String clan;
-    @Nullable
-    private List<String> cardEffects;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "card_id", referencedColumnName = "id")
+    List<CardEffect> cardEffects = new ArrayList<>();
     @NotNull
     private String cardDescription;
     @NotNull

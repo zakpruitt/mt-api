@@ -10,7 +10,6 @@ import javax.persistence.Table;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table
 public class SpellCard extends CardParent {
