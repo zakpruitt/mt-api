@@ -34,7 +34,7 @@ public class Card extends AuditModel {
     @NotNull
     private String cardDescription;
     @NotNull
-    private int emberCost;
+    private String emberCost;
     @NotNull
     private String imageURL;
 }
