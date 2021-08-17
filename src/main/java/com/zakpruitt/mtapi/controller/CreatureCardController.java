@@ -1,21 +1,39 @@
 package com.zakpruitt.mtapi.controller;
 
 import com.zakpruitt.mtapi.domain.Card.CreatureCard;
-import com.zakpruitt.mtapi.service.CardService;
 import com.zakpruitt.mtapi.service.CreatureCardService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
+import java.util.List;
+
+@RestController("/api/v1/creature")
 public class CreatureCardController {
 
     @Autowired
     private CreatureCardService creatureCardService;
 
-    @PostMapping("/addProduct")
-    public CreatureCard addProduct(@RequestBody CreatureCard product) {
+    @GetMapping("/cards")
+    public List<CreatureCard> findAllCreatureCards() {
+        return creatureCardService.getCards();
+    }
+
+    @GetMapping("/cards")
+
+
+    public Product findProductById(@PathVariable String id) {
+        return cardService.getProductById(id);
+    }
+
+    @GetMapping("/cards/{name}")
+    public Product findProductByName(@PathVariable String name) {
+        return cardService.getProductByName(name);
+    }
+
+    @PostMapping("/addCreatureCard")
+    public CreatureCard addCreatureCard(@RequestBody CreatureCard product) {
         return creatureCardService.saveCreatureCard(product);
     }
+
+
 }
