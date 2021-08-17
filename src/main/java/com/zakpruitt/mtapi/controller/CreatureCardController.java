@@ -19,9 +19,7 @@ public class CreatureCardController {
     }
 
     @GetMapping("/cards")
-
-
-    public Product findProductById(@PathVariable String id) {
+    public CreatureCard findCreatureCardById(@PathVariable long id) {
         return cardService.getProductById(id);
     }
 
