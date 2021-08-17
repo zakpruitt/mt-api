@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @Entity
 @Table
-public class Creature extends CardParent {
+public class CreatureCard extends CardParent {
     @NotNull
     private int capacity;
     @NotNull

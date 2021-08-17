@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Entity
 @Table
-public class Spell extends CardParent {
+public class SpellCard extends CardParent {
     @PostConstruct
     private void assignType() {
         this.setType("Spell");
