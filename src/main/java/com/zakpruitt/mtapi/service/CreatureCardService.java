@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CreatureCardService {
@@ -17,7 +18,13 @@ public class CreatureCardService {
         return creatureCardRepository.findAll();
     }
 
+    public Optional<CreatureCard> getCreatureCardById(Long id) {
+        return creatureCardRepository.findById(id);
+    }
+
     public CreatureCard saveCreatureCard(CreatureCard creatureCard) {
         return creatureCardRepository.save(creatureCard);
     }
+
+
 }

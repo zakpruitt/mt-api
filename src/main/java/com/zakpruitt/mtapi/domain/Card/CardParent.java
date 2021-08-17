@@ -15,7 +15,7 @@ import java.util.List;
 public class CardParent extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @NotEmpty(message = "Card Name is required.")
     private String cardName;
