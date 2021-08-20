@@ -3,6 +3,7 @@ package com.zakpruitt.mtapi.domain.Card;
 
 import com.zakpruitt.mtapi.domain.AuditModel;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
@@ -21,6 +22,7 @@ public class CardParent extends AuditModel {
     @NotEmpty(message = "Card Name is required.")
     private String cardName;
     @NotEmpty(message = "Card Lore is required.")
+    @Lob
     private String cardLore;
     @NotNull
     private String type;
@@ -31,7 +33,7 @@ public class CardParent extends AuditModel {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "card_id", referencedColumnName = "id")
     List<CardEffect> cardEffects = new ArrayList<>();
-    @NotNull
+    @Nullable
     private String cardDescription;
     @NotNull
     private String emberCost;
