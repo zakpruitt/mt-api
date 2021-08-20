@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController("/api/v1/creature")
+@RestController("/api/v1")
+@RequestMapping(path = "/api/v1/creature")
 public class CreatureCardController {
 
     @Autowired
@@ -19,7 +20,7 @@ public class CreatureCardController {
         return creatureCardService.getCards();
     }
 
-    @GetMapping("/cards")
+    @GetMapping("/creature/cards/{id}")
     public Optional<CreatureCard> findCreatureCardById(@PathVariable Long id) {
         return creatureCardService.getCreatureCardById(id);
     }
@@ -30,8 +31,8 @@ public class CreatureCardController {
 //    }
 
     @PostMapping("/addCreatureCard")
-    public CreatureCard addCreatureCard(@RequestBody CreatureCard product) {
-        return creatureCardService.saveCreatureCard(product);
+    public CreatureCard addCreatureCard(@RequestBody CreatureCard creatureCard) {
+        return creatureCardService.saveCreatureCard(creatureCard);
     }
 
 
