@@ -14,7 +14,7 @@ import java.util.List;
 
 @Data
 @Entity
-public class CardParent extends AuditModel {
+public class Card extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
