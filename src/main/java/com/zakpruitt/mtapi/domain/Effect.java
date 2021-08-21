@@ -1,4 +1,4 @@
-package com.zakpruitt.mtapi.domain.Card;
+package com.zakpruitt.mtapi.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,10 +11,12 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Entity
 @Table
-public class CardEffect {
+public class Effect {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotEmpty(message = "Card Effect is required.")
-    private String cardEffect;
+    @NotEmpty(message = "Effect is required.")
+    private String effect;
+    @NotEmpty(message = "Effect description is required.")
+    private String effectDescription;
 }
