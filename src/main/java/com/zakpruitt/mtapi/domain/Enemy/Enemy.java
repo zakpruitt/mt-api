@@ -2,6 +2,9 @@ package com.zakpruitt.mtapi.domain.Enemy;
 
 import com.zakpruitt.mtapi.domain.AuditModel;
 import com.zakpruitt.mtapi.domain.Effect;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
@@ -10,6 +13,10 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class Enemy extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +38,7 @@ public class Enemy extends AuditModel {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "enemy_id", referencedColumnName = "id")
-    List<Effect> rings = new ArrayList<>();
+    List<Ring> rings = new ArrayList<>();
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "enemy_id", referencedColumnName = "id")
     List<Effect> effects = new ArrayList<>();
