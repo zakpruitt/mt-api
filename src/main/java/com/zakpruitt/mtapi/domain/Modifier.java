@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Entity
 @Table
-public class Effect {
+public class Modifier {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

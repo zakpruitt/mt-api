@@ -1,11 +1,10 @@
 package com.zakpruitt.mtapi.domain.Enemy;
 
 import com.zakpruitt.mtapi.domain.AuditModel;
-import com.zakpruitt.mtapi.domain.Effect;
+import com.zakpruitt.mtapi.domain.Modifier;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -41,5 +40,5 @@ public class Enemy extends AuditModel {
     List<Ring> rings = new ArrayList<>();
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "enemy_id", referencedColumnName = "id")
-    List<Effect> effects = new ArrayList<>();
+    List<Modifier> modifiers = new ArrayList<>();
 }

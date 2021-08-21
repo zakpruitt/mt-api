@@ -2,9 +2,8 @@ package com.zakpruitt.mtapi.domain.Card;
 
 
 import com.zakpruitt.mtapi.domain.AuditModel;
-import com.zakpruitt.mtapi.domain.Effect;
+import com.zakpruitt.mtapi.domain.Modifier;
 import lombok.Data;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -37,5 +36,5 @@ public class Card extends AuditModel {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "card_id", referencedColumnName = "id")
-    List<Effect> effects = new ArrayList<>();
+    List<Modifier> modifiers = new ArrayList<>();
 }
