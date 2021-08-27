@@ -1,4 +1,8 @@
 package com.zakpruitt.mtapi.repository;
 
-public interface DebuffRepository {
+import com.zakpruitt.mtapi.domain.Card.CreatureCard;
+import com.zakpruitt.mtapi.domain.StatusEffect.Debuff;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DebuffRepository extends JpaRepository<Debuff, Long> {
 }

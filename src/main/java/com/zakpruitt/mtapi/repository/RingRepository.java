@@ -1,4 +1,8 @@
 package com.zakpruitt.mtapi.repository;
 
-public interface RingRepository {
+import com.zakpruitt.mtapi.domain.Card.CreatureCard;
+import com.zakpruitt.mtapi.domain.Enemy.Ring;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RingRepository extends JpaRepository<Ring, Long> {
 }

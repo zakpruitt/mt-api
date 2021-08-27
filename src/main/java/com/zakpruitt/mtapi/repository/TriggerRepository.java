@@ -1,4 +1,8 @@
 package com.zakpruitt.mtapi.repository;
 
-public interface TriggerRepository {
+import com.zakpruitt.mtapi.domain.Card.CreatureCard;
+import com.zakpruitt.mtapi.domain.StatusEffect.Trigger;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TriggerRepository extends JpaRepository<Trigger, Long> {
 }

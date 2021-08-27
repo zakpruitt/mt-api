@@ -1,4 +1,8 @@
 package com.zakpruitt.mtapi.repository;
 
-public interface EnemyRepository {
+import com.zakpruitt.mtapi.domain.Card.CreatureCard;
+import com.zakpruitt.mtapi.domain.Enemy.Enemy;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EnemyRepository extends JpaRepository<Enemy, Long> {
 }

@@ -1,4 +1,8 @@
 package com.zakpruitt.mtapi.repository;
 
-public interface CardEffectRepository {
+import com.zakpruitt.mtapi.domain.Card.CreatureCard;
+import com.zakpruitt.mtapi.domain.StatusEffect.CardEffect;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CardEffectRepository extends JpaRepository<CardEffect, Long> {
 }
