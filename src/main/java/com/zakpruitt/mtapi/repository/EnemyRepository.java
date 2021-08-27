@@ -1,6 +1,5 @@
 package com.zakpruitt.mtapi.repository;
 
-import com.zakpruitt.mtapi.domain.Card.CreatureCard;
 import com.zakpruitt.mtapi.domain.Enemy.Enemy;
 import org.springframework.data.jpa.repository.JpaRepository;
 
