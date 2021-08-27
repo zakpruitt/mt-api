@@ -16,11 +16,11 @@ public class Artifact {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotEmpty(message = "Card Name is required.")
+    @NotEmpty(message = "Artifact Name is required.")
     private String artifactName;
-    @NotEmpty(message = "Card Lore is required.")
+    @NotEmpty(message = "Artifact Description is required.")
     private String artifactDescription;
-    @NotEmpty(message = "Card Lore is required.")
+    @NotEmpty(message = "Artifact Lore is required.")
     @Lob
     private String artifactLore;
 }

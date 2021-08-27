@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
@@ -12,6 +13,11 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @Entity
 public class CreatureCard extends Card {
+    @PostConstruct
+    private void assignType() {
+        this.setType("Creature");
+    }
+
     @NotNull
     private int capacity;
     @NotNull
