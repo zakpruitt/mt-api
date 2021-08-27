@@ -1,4 +1,4 @@
 package com.zakpruitt.mtapi.repository;
 
-public interface CardEffectRepository {
+public interface RingRepository {
 }
