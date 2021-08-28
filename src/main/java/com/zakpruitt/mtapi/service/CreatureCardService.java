@@ -25,10 +25,13 @@ public class CreatureCardService {
     }
 
     public CreatureCard getCreatureCardByName(String name) {
-        return creatureCardRepository.findByName(name);
+        return creatureCardRepository.findByCardName(name);
     }
 
-    public CreatureCard saveCreatureCard(CreatureCard creatureCard) {
+    public CreatureCard saveCreatureCard(CreatureCard creatureCard) throws Exception {
+        if (creatureCardRepository.findByCardName(creatureCard.getCardName()) != null) {
+            throw new Exception("Card with that name already exists!");
+        }
         return creatureCardRepository.save(creatureCard);
     }
 
