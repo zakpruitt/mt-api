@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController("/api/v1")
@@ -16,19 +17,14 @@ public class CreatureCardController {
     private CreatureCardService creatureCardService;
 
     @GetMapping("/cards")
-    public List<CreatureCard> findAllCreatureCards() {
+    public Map<String, CreatureCard> findAllCreatureCards() {
         return creatureCardService.getCards();
     }
 
-    @GetMapping("/creature/cards/{id}")
-    public Optional<CreatureCard> findCreatureCardById(@PathVariable Long id) {
-        return creatureCardService.getCreatureCardById(id);
+    @GetMapping("/cards/{name}")
+    public CreatureCard findProductByName(@PathVariable String name) {
+        return creatureCardService.getCreatureCardByName(name);
     }
-
-//    @GetMapping("/cards/{name}")
-//    public Product findProductByName(@PathVariable String name) {
-//        return cardService.getProductByName(name);
-//    }
 
     @PostMapping("/addCreatureCard")
     public CreatureCard addCreatureCard(@RequestBody CreatureCard creatureCard) {
