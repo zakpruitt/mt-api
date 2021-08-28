@@ -27,4 +27,8 @@ public class CardService {
         allCards.putAll(spellCardRepository.findAll().stream().collect(Collectors.toMap(SpellCard::getCardName, Function.identity())));
         return allCards;
     }
+
+
+
+
 }
