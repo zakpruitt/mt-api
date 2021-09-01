@@ -27,7 +27,7 @@ public class CreatureCardController {
     }
 
     @PostMapping("/addCreatureCard")
-    public String addCreatureCard(@RequestBody CreatureCard creatureCard) throws Exception {
+    public String addCreatureCard(@RequestBody CreatureCard creatureCard) {
         try {
             creatureCardService.saveCreatureCard(creatureCard);
         } catch (Exception ex) {
