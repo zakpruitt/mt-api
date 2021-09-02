@@ -1,7 +1,5 @@
 package com.zakpruitt.mtapi.config;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.zakpruitt.mtapi.domain.Card.CreatureCard;
 import com.zakpruitt.mtapi.repository.CreatureCardRepository;
 import com.zakpruitt.mtapi.repository.SpellCardRepository;
 import org.json.JSONArray;
@@ -81,46 +79,54 @@ public class CardConfig {
         if (description.equals("")) return description;
 
         if (description.contains("<sprite")) {
-
-            }
+            description = parseSprite(description);
         }
-
+        description = parseEscapeCharacters(description);
         Pattern regex = Pattern.compile("(\\\\.)+", Pattern.MULTILINE);
         Matcher regexMatcher = regex.matcher("description");
         return description;
 
-        (\\.)+
+
     }
 
     private String parseSprite(String description) {
         Pattern regex = Pattern.compile("\\\"(.*?)\\\"", Pattern.MULTILINE);
-        Matcher regexMatcher = regex.matcher("description");
+        Matcher regexMatcher = regex.matcher(description);
         while (regexMatcher.find()) {
             for (int i = 0; i < regexMatcher.groupCount(); i++) {
                 switch (regexMatcher.group(i)) {
                     case "Attack":
-                        description = description.replace("<sprite name=\\\"Attack\\\">", description);
+                        description = description.replace("<sprite name=\\\"Attack\\\">", "Attack");
                         break;
                     case "Health":
-                        description = description.replace("<sprite name=\\\"Health\\\">", description);
+                        description = description.replace("<sprite name=\\\"Health\\\">", "Health");
                         break;
                     case "ChargedEchoes":
-                        description = description.replace("<sprite name=\\\"ChargedEchoes\\\">", description);
+                        description = description.replace("<sprite name=\\\"ChargedEchoes\\\">", "ChargedEchoes");
                         break;
                     case "Xcost":
-                        description = description.replace("<sprite name=\\\"Xcost\\\">", description);
+                        description = description.replace("<sprite name=\\\"Xcost\\\">", "Xcost");
                         break;
                     case "Ember":
-                        description = description.replace("<sprite name=\\\"Ember\\\">", description);
+                        description = description.replace("<sprite name=\\\"Ember\\\">", "Ember");
                         break;
                     case "Gold":
-                        description = description.replace("<sprite name=\\\"Gold\\\">", description);
+                        description = description.replace("<sprite name=\\\"Gold\\\">", "Gold");
                         break;
                     case "Capacity":
-                        description = description.replace("<sprite name=\\\"Capacity\\\">", description);
+                        description = description.replace("<sprite name=\\\"Capacity\\\">", "Capacity");
                         break;
                 }
             }
+        }
+        return description;
+    }
+
+    private String parseEscapeCharacters(String description) {
+        Pattern regex = Pattern.compile("(\\\\.)+", Pattern.MULTILINE);
+        Matcher regexMatcher = regex.matcher(description);
+        if (regexMatcher.find()) {
+            regexMatcher.replaceAll("");
         }
         return description;
     }
