@@ -87,18 +87,25 @@ public class CardConfig {
                 for (int i = 0; i < regexMatcher.groupCount(); i++) {
                     switch (regexMatcher.group(i)) {
                         case "Attack":
+                            description = description.replace("<sprite name=\\\"Attack\\\">", description);
                             break;
                         case "Health":
+                            description = description.replace("<sprite name=\\\"Health\\\">", description);
                             break;
                         case "ChargedEchoes":
+                            description = description.replace("<sprite name=\\\"ChargedEchoes\\\">", description);
                             break;
                         case "Xcost":
+                            description = description.replace("<sprite name=\\\"Xcost\\\">", description);
                             break;
                         case "Ember":
+                            description = description.replace("<sprite name=\\\"Ember\\\">", description);
                             break;
                         case "Gold":
+                            description = description.replace("<sprite name=\\\"Gold\\\">", description);
                             break;
                         case "Capacity":
+                            description = description.replace("<sprite name=\\\"Capacity\\\">", description);
                             break;
                     }
                 }
