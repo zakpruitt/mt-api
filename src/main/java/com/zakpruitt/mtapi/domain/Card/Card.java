@@ -26,13 +26,17 @@ public class Card extends AuditModel {
     @NotNull
     private String type;
     @NotNull
-    private String rarity;
+    private String subtype;
+    @NotNull
+    private int rarity;
     @NotNull
     private String clan;
     @NotNull
-    private String emberCost;
+    private int emberCost;
     @NotNull
     private String imageURL;
+    @NotNull
+    private String description;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "card_id", referencedColumnName = "id")
