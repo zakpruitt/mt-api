@@ -56,11 +56,7 @@ public class CardConfig {
                     JSONObject card = cardArray.getJSONObject(j);
                     Pattern regex = Pattern.compile("\\\"(.*?)\\\"", Pattern.MULTILINE);
                     Matcher matcher = regex.matcher(card.getString("description"));
-                    while (matcher.find()) {
-                        for (int f = 0; f < matcher.groupCount(); f++) {
-                            System.out.println(matcher.group(f));
-                        }
-                    }
+
 //                    if (card.getString("cardType") == "Monster") {
 //                        CreatureCard newCard = new CreatureCard();
 //                        newCard.setCardName(card.getString("name"));
@@ -84,7 +80,30 @@ public class CardConfig {
     private String parseDescription(String description) {
         if (description.equals("")) return description;
 
-        //description = description.replace();
+        if (description.contains("<sprite")) {
+            Pattern regex = Pattern.compile("\\\"(.*?)\\\"", Pattern.MULTILINE);
+            Matcher regexMatcher = regex.matcher("description");
+            while (regexMatcher.find()) {
+                for (int i = 0; i < regexMatcher.groupCount(); i++) {
+                    switch (regexMatcher.group(i)) {
+                        case "Attack":
+                            break;
+                        case "Health":
+                            break;
+                        case "ChargedEchoes":
+                            break;
+                        case "Xcost":
+                            break;
+                        case "Ember":
+                            break;
+                        case "Gold":
+                            break;
+                        case "Capacity":
+                            break;
+                    }
+                }
+            }
+        }
 
         return description;
     }
