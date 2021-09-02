@@ -54,10 +54,12 @@ public class CardConfig {
                 JSONArray cardArray = cardJSON.getJSONArray("cards");
                 for(int j = 0; j < cardArray.length(); j++){
                     JSONObject card = cardArray.getJSONObject(j);
-                    Pattern regex = Pattern.compile("\\\"(.*?)\\\"");
+                    Pattern regex = Pattern.compile("\\\"(.*?)\\\"", Pattern.MULTILINE);
                     Matcher matcher = regex.matcher(card.getString("description"));
                     while (matcher.find()) {
-                        System.out.println(matcher.group());
+                        for (int f = 0; f < matcher.groupCount(); f++) {
+                            System.out.println(matcher.group(f));
+                        }
                     }
 //                    if (card.getString("cardType") == "Monster") {
 //                        CreatureCard newCard = new CreatureCard();
