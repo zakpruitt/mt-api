@@ -79,17 +79,15 @@ public class CardConfig {
         if (description.equals("")) return description;
 
         if (description.contains("<sprite")) {
-            description = parseSprite(description);
+            description = parseSpriteTags(description);
         }
         description = parseEscapeCharacters(description);
-        Pattern regex = Pattern.compile("(\\\\.)+", Pattern.MULTILINE);
-        Matcher regexMatcher = regex.matcher("description");
+
+
         return description;
-
-
     }
 
-    private String parseSprite(String description) {
+    private String parseSpriteTags(String description) {
         Pattern regex = Pattern.compile("\\\"(.*?)\\\"", Pattern.MULTILINE);
         Matcher regexMatcher = regex.matcher(description);
         while (regexMatcher.find()) {
@@ -124,6 +122,15 @@ public class CardConfig {
 
     private String parseEscapeCharacters(String description) {
         Pattern regex = Pattern.compile("(\\\\.)+", Pattern.MULTILINE);
+        Matcher regexMatcher = regex.matcher(description);
+        if (regexMatcher.find()) {
+            regexMatcher.replaceAll("");
+        }
+        return description;
+    }
+
+    public String parseHTMLTags(String description) {
+        Pattern regex = Pattern.compile("<.+?>", Pattern.MULTILINE);
         Matcher regexMatcher = regex.matcher(description);
         if (regexMatcher.find()) {
             regexMatcher.replaceAll("");
