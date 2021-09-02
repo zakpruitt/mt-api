@@ -56,22 +56,23 @@ public class CardConfig {
                     if (creatureCardRepository.findByCardName(card.getString("name")) != null) continue;
                     if (spellCardRepository.findByCardName(card.getString("name")) != null ) continue;
 
-                    if (card.getString("cardType").equals("Monster")) {
-                        CreatureCard newCard = new CreatureCard();
-                        newCard.setCardName(card.getString("name"));
-                        newCard.setCardLore(card.getString("lore"));
-                        newCard.setEmberCost(card.getInt("cost"));
-                        newCard.setSubtype(card.getString("cardSubType"));
-                        newCard.setRarity(card.getInt("rarity"));
-                        newCard.setHealth(card.getInt("health"));
-                        newCard.setDamage(card.getInt("attack"));
-                        newCard.setImageURL(card.getString("imageUrl"));
-                        newCard.setType(card.getString("cardType"));
-                        newCard.setDescription(parseDescription(card.getString("description")));
-
-                        creatureCardRepository.save(newCard);
-                    } else {
-
+                    switch (card.getString("cardType")) {
+                        case "Monster":
+                            CreatureCard newCard = new CreatureCard();
+                            newCard.setCardName(card.getString("name"));
+                            newCard.setCardLore(card.getString("lore"));
+                            newCard.setEmberCost(card.getInt("cost"));
+                            newCard.setSubtype(card.getString("cardSubType"));
+                            newCard.setRarity(card.getInt("rarity"));
+                            newCard.setHealth(card.getInt("health"));
+                            newCard.setDamage(card.getInt("attack"));
+                            newCard.setImageURL(card.getString("imageUrl"));
+                            newCard.setType(card.getString("cardType"));
+                            newCard.setDescription(parseDescription(card.getString("description")));
+                            creatureCardRepository.save(newCard);
+                            break;
+                        case "Spell":
+                            break;
                     }
                 }
                 con.disconnect();
