@@ -53,6 +53,9 @@ public class CardConfig {
                 JSONArray cardArray = cardJSON.getJSONArray("cards");
                 for(int j = 0; j < cardArray.length(); j++){
                     JSONObject card = cardArray.getJSONObject(j);
+                    if (creatureCardRepository.findByCardName(card.getString("name")) != null) continue;
+                    if (spellCardRepository.findByCardName(card.getString("name")) != null ) continue;
+
                     if (card.getString("cardType").equals("Monster")) {
                         CreatureCard newCard = new CreatureCard();
                         newCard.setCardName(card.getString("name"));
