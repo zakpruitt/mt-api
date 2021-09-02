@@ -54,10 +54,18 @@ public class CardConfig {
                 JSONArray cardArray = cardJSON.getJSONArray("cards");
                 for(int j = 0; j < cardArray.length(); j++){
                     JSONObject card = cardArray.getJSONObject(j);
-                    Pattern pattern = Pattern.compile("\\[(.*?)\\]\n");
-                    Matcher matcher = pattern.matcher(card.getString("description"));
-                    boolean matchFound = matcher.find();
-                    if (matchFound) System.out.println(matcher.group());
+                    Pattern regex = Pattern.compile("\\[(.*?)\\]\n");
+                    Matcher matcher = regex.matcher(card.getString("description"));
+                    while (matcher.find()) {
+                        for (int f = 1; i <= matcher.groupCount(); f++) {
+                            // matched text: regexMatcher.group(i)
+                            System.out.println(matcher.group(f));
+                            System.out.println(matcher.start(f));
+                            System.out.println(matcher.end(f));
+                            // match start: regexMatcher.start(i)
+                            // match end: regexMatcher.end(i)
+                        }
+                    }
 //                    if (card.getString("cardType") == "Monster") {
 //                        CreatureCard newCard = new CreatureCard();
 //                        newCard.setCardName(card.getString("name"));
