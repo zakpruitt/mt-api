@@ -53,7 +53,7 @@ public class CardConfig {
                 for(int j = 0; j < cardArray.length(); j++){
                     JSONObject card = cardArray.getJSONObject(j);
                     String description = parseDescription(card.getString("description"));
-                    System.out.println(description);
+                    System.out.println(description + "\n");
 //                    if (card.getString("cardType") == "Monster") {
 //                        CreatureCard newCard = new CreatureCard();
 //                        newCard.setCardName(card.getString("name"));
@@ -92,25 +92,25 @@ public class CardConfig {
             for (int i = 0; i < regexMatcher.groupCount(); i++) {
                 switch (regexMatcher.group(i).replaceAll("\"", "")) {
                     case "Attack":
-                        description = description.replace("<sprite name=\"Attack\">", "Attack");
+                        description = description.replace("<sprite name=\"Attack\">", " Attack");
                         break;
                     case "Health":
-                        description = description.replace("<sprite name=\"Health\">", "Health");
+                        description = description.replace("<sprite name=\"Health\">", " Health");
                         break;
                     case "ChargedEchoes":
-                        description = description.replace("<sprite name=\"ChargedEchoes\">", "ChargedEchoes");
+                        description = description.replace("<sprite name=\"ChargedEchoes\">", " ChargedEchoes");
                         break;
                     case "Xcost":
-                        description = description.replace("<sprite name=\"Xcost\">", "Xcost");
+                        description = description.replace("<sprite name=\"Xcost\">", " Xcost");
                         break;
                     case "Ember":
-                        description = description.replace("<sprite name=\"Ember\">", "Ember");
+                        description = description.replace("<sprite name=\"Ember\">", " Ember");
                         break;
                     case "Gold":
-                        description = description.replace("<sprite name=\"Gold\">", "Gold");
+                        description = description.replace("<sprite name=\"Gold\">", " Gold");
                         break;
                     case "Capacity":
-                        description = description.replace("<sprite name=\"Capacity\">", "Capacity");
+                        description = description.replace("<sprite name=\"Capacity\">", " Capacity");
                         break;
                 }
             }
