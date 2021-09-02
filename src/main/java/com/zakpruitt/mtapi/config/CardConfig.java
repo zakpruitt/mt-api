@@ -81,37 +81,47 @@ public class CardConfig {
         if (description.equals("")) return description;
 
         if (description.contains("<sprite")) {
-            Pattern regex = Pattern.compile("\\\"(.*?)\\\"", Pattern.MULTILINE);
-            Matcher regexMatcher = regex.matcher("description");
-            while (regexMatcher.find()) {
-                for (int i = 0; i < regexMatcher.groupCount(); i++) {
-                    switch (regexMatcher.group(i)) {
-                        case "Attack":
-                            description = description.replace("<sprite name=\\\"Attack\\\">", description);
-                            break;
-                        case "Health":
-                            description = description.replace("<sprite name=\\\"Health\\\">", description);
-                            break;
-                        case "ChargedEchoes":
-                            description = description.replace("<sprite name=\\\"ChargedEchoes\\\">", description);
-                            break;
-                        case "Xcost":
-                            description = description.replace("<sprite name=\\\"Xcost\\\">", description);
-                            break;
-                        case "Ember":
-                            description = description.replace("<sprite name=\\\"Ember\\\">", description);
-                            break;
-                        case "Gold":
-                            description = description.replace("<sprite name=\\\"Gold\\\">", description);
-                            break;
-                        case "Capacity":
-                            description = description.replace("<sprite name=\\\"Capacity\\\">", description);
-                            break;
-                    }
-                }
+
             }
         }
 
+        Pattern regex = Pattern.compile("(\\\\.)+", Pattern.MULTILINE);
+        Matcher regexMatcher = regex.matcher("description");
+        return description;
+
+        (\\.)+
+    }
+
+    private String parseSprite(String description) {
+        Pattern regex = Pattern.compile("\\\"(.*?)\\\"", Pattern.MULTILINE);
+        Matcher regexMatcher = regex.matcher("description");
+        while (regexMatcher.find()) {
+            for (int i = 0; i < regexMatcher.groupCount(); i++) {
+                switch (regexMatcher.group(i)) {
+                    case "Attack":
+                        description = description.replace("<sprite name=\\\"Attack\\\">", description);
+                        break;
+                    case "Health":
+                        description = description.replace("<sprite name=\\\"Health\\\">", description);
+                        break;
+                    case "ChargedEchoes":
+                        description = description.replace("<sprite name=\\\"ChargedEchoes\\\">", description);
+                        break;
+                    case "Xcost":
+                        description = description.replace("<sprite name=\\\"Xcost\\\">", description);
+                        break;
+                    case "Ember":
+                        description = description.replace("<sprite name=\\\"Ember\\\">", description);
+                        break;
+                    case "Gold":
+                        description = description.replace("<sprite name=\\\"Gold\\\">", description);
+                        break;
+                    case "Capacity":
+                        description = description.replace("<sprite name=\\\"Capacity\\\">", description);
+                        break;
+                }
+            }
+        }
         return description;
     }
 }
