@@ -1,5 +1,6 @@
 package com.zakpruitt.mtapi.config;
 
+import com.zakpruitt.mtapi.domain.Card.CreatureCard;
 import com.zakpruitt.mtapi.repository.CreatureCardRepository;
 import com.zakpruitt.mtapi.repository.SpellCardRepository;
 import org.json.JSONArray;
@@ -52,22 +53,23 @@ public class CardConfig {
                 JSONArray cardArray = cardJSON.getJSONArray("cards");
                 for(int j = 0; j < cardArray.length(); j++){
                     JSONObject card = cardArray.getJSONObject(j);
-                    String description = parseDescription(card.getString("description"));
-                    System.out.println(description + "\n");
-//                    if (card.getString("cardType") == "Monster") {
-//                        CreatureCard newCard = new CreatureCard();
-//                        newCard.setCardName(card.getString("name"));
-//                        newCard.setCardLore(card.getString("lore"));
-//                        newCard.setEmberCost(card.getInt("cost"));
-//                        newCard.setSubtype(card.getString("cardSubType"));
-//                        newCard.setRarity(card.getInt("rarity"));
-//                        newCard.setHealth(card.getInt("health"));
-//                        newCard.setDamage(card.getInt("attack"));
-//                        newCard.setImageURL(card.getString("imageUrl"));
-//                        newCard.setDescription(parseDescription(card.getString("description")));
-//                    } else {
-//
-//                    }
+                    if (card.getString("cardType").equals("Monster")) {
+                        CreatureCard newCard = new CreatureCard();
+                        newCard.setCardName(card.getString("name"));
+                        newCard.setCardLore(card.getString("lore"));
+                        newCard.setEmberCost(card.getInt("cost"));
+                        newCard.setSubtype(card.getString("cardSubType"));
+                        newCard.setRarity(card.getInt("rarity"));
+                        newCard.setHealth(card.getInt("health"));
+                        newCard.setDamage(card.getInt("attack"));
+                        newCard.setImageURL(card.getString("imageUrl"));
+                        newCard.setType(card.getString("cardType"));
+                        newCard.setDescription(parseDescription(card.getString("description")));
+
+                        creatureCardRepository.save(newCard);
+                    } else {
+
+                    }
                 }
                 con.disconnect();
             }

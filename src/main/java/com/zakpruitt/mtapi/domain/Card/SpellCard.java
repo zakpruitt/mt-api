@@ -10,8 +10,4 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 @Entity
 public class SpellCard extends Card {
-    @PostConstruct
-    private void assignType() {
-        this.setType("Spell");
-    }
 }

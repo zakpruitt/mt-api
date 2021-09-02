@@ -3,6 +3,7 @@ package com.zakpruitt.mtapi.domain.Card;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.Entity;
@@ -13,12 +14,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @Entity
 public class CreatureCard extends Card {
-    @PostConstruct
-    private void assignType() {
-        this.setType("Creature");
-    }
-
-    @NotNull
+    @Nullable
     private int capacity;
     @NotNull
     private int damage;
