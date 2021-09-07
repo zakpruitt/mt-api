@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 @Configuration
 public class CardConfig {
 
-    @Value("$MTAPI.ENV")
+    @Value("${MTAPI.ENV}")
     private String env;
 
     @Autowired
@@ -34,12 +34,13 @@ public class CardConfig {
     CommandLineRunner commandLineRunner(CreatureCardRepository creatureCardRepository, SpellCardRepository spellCardRepository) {
         return args -> {
             if (env.equals("dev")) {
+                System.out.println(env);
                 for (int i = 1; i < 30; i++) {
                     // Create URL and request connection
                     URL url = new URL(String.format("https://ocffhwpt3b.execute-api.us-west-2.amazonaws.com/production/api/v1/cards?offset=%s&limit=10", i));
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     con.setRequestProperty("Content-Type", "application/json");
-                    con.setRequestProperty("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzA2ODIzMjksInBsYXRmb3JtIjoiUHVibGljIiwicGxhdGZvcm1Vc2VySWQiOiJQdWJsaWMiLCJzZXNzaW9uVGlja2V0IjpudWxsLCJyb3V0ZXMiOlsiY2FyZHMiLCJjaGFsbGVuZ2UiLCJjaGFsbGVuZ2VzIiwiY2xhbnMiLCJjb3ZlbmFudHMiLCJhcnRpZmFjdHMiLCJlbmVtaWVzIiwibGVhZGVyYm9hcmQiLCJtdXRhdG9ycyIsInNoYXJlcyIsInNpbnMiLCJwYXRjaG5vdGVzIl0sImJ1aWxkVmVyc2lvbiI6bnVsbH0.KCcAqDtNa7wW59AqHiXZSG6hms_gSIyVd4qktoFCub8");
+                    con.setRequestProperty("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzEwNjY0MDMsInBsYXRmb3JtIjoiUHVibGljIiwicGxhdGZvcm1Vc2VySWQiOiJQdWJsaWMiLCJzZXNzaW9uVGlja2V0IjpudWxsLCJyb3V0ZXMiOlsiY2FyZHMiLCJjaGFsbGVuZ2UiLCJjaGFsbGVuZ2VzIiwiY2xhbnMiLCJjb3ZlbmFudHMiLCJhcnRpZmFjdHMiLCJlbmVtaWVzIiwibGVhZGVyYm9hcmQiLCJtdXRhdG9ycyIsInNoYXJlcyIsInNpbnMiLCJwYXRjaG5vdGVzIl0sImJ1aWxkVmVyc2lvbiI6bnVsbH0.-_LVxh-oYaq_tQG_I1zLLH_SCHOV5ZTzPOQuywVWFrs");
                     con.setRequestMethod("GET");
 
                     // Read response
