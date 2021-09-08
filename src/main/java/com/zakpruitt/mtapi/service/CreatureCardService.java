@@ -34,6 +34,4 @@ public class CreatureCardService {
         }
         return creatureCardRepository.save(creatureCard);
     }
-
-
 }

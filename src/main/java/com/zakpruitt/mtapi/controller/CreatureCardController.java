@@ -22,7 +22,7 @@ public class CreatureCardController {
     }
 
     @GetMapping("/cards/{name}")
-    public CreatureCard findProductByName(@PathVariable String name) {
+    public CreatureCard findCreatureCardByName(@PathVariable String name) {
         return creatureCardService.getCreatureCardByName(name);
     }
 
