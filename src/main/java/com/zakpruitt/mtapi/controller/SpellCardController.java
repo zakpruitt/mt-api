@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
+@RequestMapping(path = "/api/v1/spell")
 public class SpellCardController {
     @Autowired
     private SpellCardService spellCardService;
