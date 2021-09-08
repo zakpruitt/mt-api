@@ -1,6 +1,7 @@
 package com.zakpruitt.mtapi.config;
 
 import com.zakpruitt.mtapi.domain.Card.CreatureCard;
+import com.zakpruitt.mtapi.domain.Card.SpellCard;
 import com.zakpruitt.mtapi.repository.CreatureCardRepository;
 import com.zakpruitt.mtapi.repository.SpellCardRepository;
 import com.zakpruitt.mtapi.utility.DescriptionParserUtility;
@@ -40,7 +41,7 @@ public class CardConfig {
                     URL url = new URL(String.format("https://ocffhwpt3b.execute-api.us-west-2.amazonaws.com/production/api/v1/cards?offset=%s&limit=10", i));
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     con.setRequestProperty("Content-Type", "application/json");
-                    con.setRequestProperty("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzEwNjY0MDMsInBsYXRmb3JtIjoiUHVibGljIiwicGxhdGZvcm1Vc2VySWQiOiJQdWJsaWMiLCJzZXNzaW9uVGlja2V0IjpudWxsLCJyb3V0ZXMiOlsiY2FyZHMiLCJjaGFsbGVuZ2UiLCJjaGFsbGVuZ2VzIiwiY2xhbnMiLCJjb3ZlbmFudHMiLCJhcnRpZmFjdHMiLCJlbmVtaWVzIiwibGVhZGVyYm9hcmQiLCJtdXRhdG9ycyIsInNoYXJlcyIsInNpbnMiLCJwYXRjaG5vdGVzIl0sImJ1aWxkVmVyc2lvbiI6bnVsbH0.-_LVxh-oYaq_tQG_I1zLLH_SCHOV5ZTzPOQuywVWFrs");
+                    con.setRequestProperty("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzExNDMzMjEsInBsYXRmb3JtIjoiUHVibGljIiwicGxhdGZvcm1Vc2VySWQiOiJQdWJsaWMiLCJzZXNzaW9uVGlja2V0IjpudWxsLCJyb3V0ZXMiOlsiY2FyZHMiLCJjaGFsbGVuZ2UiLCJjaGFsbGVuZ2VzIiwiY2xhbnMiLCJjb3ZlbmFudHMiLCJhcnRpZmFjdHMiLCJlbmVtaWVzIiwibGVhZGVyYm9hcmQiLCJtdXRhdG9ycyIsInNoYXJlcyIsInNpbnMiLCJwYXRjaG5vdGVzIl0sImJ1aWxkVmVyc2lvbiI6bnVsbH0.DtaBk0-QoWhs2Fc6KsiaDiLEnEe96jL3LG9ZnLRsq9U");
                     con.setRequestMethod("GET");
 
                     // Read response
@@ -65,20 +66,30 @@ public class CardConfig {
 
                         switch (card.getString("cardType")) {
                             case "Monster":
-                                CreatureCard newCard = new CreatureCard();
-                                newCard.setCardName(card.getString("name"));
-                                newCard.setCardLore(card.getString("lore"));
-                                newCard.setEmberCost(card.getInt("cost"));
-                                newCard.setSubtype(card.getString("cardSubType"));
-                                newCard.setRarity(card.getInt("rarity"));
-                                newCard.setHealth(card.getInt("health"));
-                                newCard.setDamage(card.getInt("attack"));
-                                newCard.setImageURL(card.getString("imageUrl"));
-                                newCard.setType(card.getString("cardType"));
-                                newCard.setDescription(DescriptionParserUtility.parseDescription(card.getString("description")));
-                                creatureCardRepository.save(newCard);
+                                CreatureCard newCreatureCard = new CreatureCard();
+                                newCreatureCard.setCardName(card.getString("name"));
+                                newCreatureCard.setCardLore(card.getString("lore"));
+                                newCreatureCard.setEmberCost(card.getInt("cost"));
+                                newCreatureCard.setSubtype(card.getString("cardSubType"));
+                                newCreatureCard.setRarity(card.getInt("rarity"));
+                                newCreatureCard.setHealth(card.getInt("health"));
+                                newCreatureCard.setDamage(card.getInt("attack"));
+                                newCreatureCard.setImageURL(card.getString("imageUrl"));
+                                newCreatureCard.setType(card.getString("cardType"));
+                                newCreatureCard.setDescription(DescriptionParserUtility.parseDescription(card.getString("description")));
+                                creatureCardRepository.save(newCreatureCard);
                                 break;
                             case "Spell":
+                                SpellCard newSpellCard = new SpellCard();
+                                newSpellCard.setCardName(card.getString("name"));
+                                newSpellCard.setCardLore(card.getString("lore"));
+                                newSpellCard.setEmberCost(card.getInt("cost"));
+                                newSpellCard.setSubtype(card.getString("cardSubType"));
+                                newSpellCard.setRarity(card.getInt("rarity"));
+                                newSpellCard.setImageURL(card.getString("imageUrl"));
+                                newSpellCard.setType(card.getString("cardType"));
+                                newSpellCard.setDescription(DescriptionParserUtility.parseDescription(card.getString("description")));
+                                spellCardRepository.save(newSpellCard);
                                 break;
                         }
                     }
