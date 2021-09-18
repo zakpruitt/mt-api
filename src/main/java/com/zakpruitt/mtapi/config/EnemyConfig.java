@@ -35,7 +35,7 @@ public class EnemyConfig {
     CommandLineRunner enemyRunner(EnemyRepository enemyRepository) {
         return args -> {
             if (env.equals("dev")) {
-                for (int i = 1; i < 6; i++) {
+                for (int i = 1; i < 7; i++) {
                     // Create URL and request connection
                     URL url = new URL(String.format("https://ocffhwpt3b.execute-api.us-west-2.amazonaws.com/production/api/v1/enemies?offset=%s&limit=10", i));
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
