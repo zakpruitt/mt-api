@@ -1,7 +1,6 @@
 package com.zakpruitt.mtapi.domain.Enemy;
 
 import com.zakpruitt.mtapi.domain.AuditModel;
-import com.zakpruitt.mtapi.domain.Modifier;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,7 +37,4 @@ public class Enemy extends AuditModel {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "enemy_id", referencedColumnName = "id")
     List<Ring> rings = new ArrayList<>();
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "enemy_id", referencedColumnName = "id")
-    List<Modifier> modifiers = new ArrayList<>();
 }

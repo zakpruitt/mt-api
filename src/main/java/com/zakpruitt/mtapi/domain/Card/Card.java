@@ -2,7 +2,6 @@ package com.zakpruitt.mtapi.domain.Card;
 
 
 import com.zakpruitt.mtapi.domain.AuditModel;
-import com.zakpruitt.mtapi.domain.Modifier;
 import lombok.Data;
 import org.springframework.lang.Nullable;
 
@@ -38,8 +37,4 @@ public class Card extends AuditModel {
     private String imageURL;
     @NotNull
     private String description;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_id", referencedColumnName = "id")
-    List<Modifier> modifiers = new ArrayList<>();
 }

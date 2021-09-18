@@ -8,6 +8,7 @@ import com.zakpruitt.mtapi.service.SpellCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -17,7 +18,7 @@ public class SpellCardController {
     private SpellCardService spellCardService;
 
     @GetMapping("/cards")
-    public Map<String, SpellCard> findAllCreatureCards() {
+    public Map<String, SpellCard> findAllSpellCards() {
         return spellCardService.getCards();
     }
 
@@ -27,7 +28,7 @@ public class SpellCardController {
     }
 
     @PostMapping("/addSpellCard")
-    public String addCreatureCard(@RequestBody SpellCard spellCard) {
+    public String addSpellCard(@RequestBody SpellCard spellCard) {
         try {
             spellCardService.saveSpellCard(spellCard);
         } catch (Exception ex) {
