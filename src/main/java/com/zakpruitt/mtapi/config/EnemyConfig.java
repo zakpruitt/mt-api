@@ -1,0 +1,76 @@
+package com.zakpruitt.mtapi.config;
+
+import com.zakpruitt.mtapi.domain.Card.CreatureCard;
+import com.zakpruitt.mtapi.domain.Card.SpellCard;
+import com.zakpruitt.mtapi.domain.Enemy.Enemy;
+import com.zakpruitt.mtapi.repository.CreatureCardRepository;
+import com.zakpruitt.mtapi.repository.EnemyRepository;
+import com.zakpruitt.mtapi.repository.SpellCardRepository;
+import com.zakpruitt.mtapi.utility.DescriptionParserUtility;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class EnemyConfig {
+
+    @Value("${MTAPI.ENV}")
+    private String env;
+    @Value("${TOKEN}")
+    private String token;
+
+    @Autowired
+    EnemyRepository enemyRepository;
+
+    @Bean
+    CommandLineRunner commandLineRunner(EnemyRepository enemyRepository) {
+        return args -> {
+            if (env.equals("dev")) {
+                for (int i = 1; i < 6; i++) {
+                    // Create URL and request connection
+                    URL url = new URL(String.format("https://ocffhwpt3b.execute-api.us-west-2.amazonaws.com/production/api/v1/enemies?offset=%s&limit=10", i));
+                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                    con.setRequestProperty("Content-Type", "application/json");
+                    con.setRequestProperty("Authorization", "Bearer " + token);
+                    con.setRequestMethod("GET");
+
+                    // Read response
+                    int status = con.getResponseCode();
+                    BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                    String inputLine;
+                    StringBuffer content = new StringBuffer();
+                    while ((inputLine = in.readLine()) != null) {
+                        content.append(inputLine);
+                    }
+                    in.close();
+
+                    // Parse to JSON
+                    JSONObject cardJSON = new JSONObject(content.toString());
+
+                    // Iterate over and create enemy objects
+                    JSONArray enemyArray = cardJSON.getJSONArray("enemies");
+                    for (int j = 0; j < enemyArray.length(); j++) {
+                        JSONObject enemy = enemyArray.getJSONObject(j);
+                        if (enemyRepository.findByEnemyName(enemy.getString("name")) != null) continue;
+
+                        Enemy newEnemy = new Enemy();
+                        newEnemy.setEnemyName(enemy.getString("name"));
+                        newEnemy.setEnemyLore(enemy.getString("lore"));
+                        newEnemy.setHealth(enemy.getInt("health"));
+                        newEnemy.setDamage(enemy.getInt("attack"));
+                        newEnemy.setImageURL(enemy.getString("imageUrl"));
+                        enemyRepository.save(newEnemy);
+                    }
+                    con.disconnect();
+                }
+            }
+        };
+    };
+}

@@ -4,6 +4,7 @@ import com.zakpruitt.mtapi.domain.AuditModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -25,7 +26,7 @@ public class Enemy extends AuditModel {
     @NotEmpty(message = "Enemy Lore is required.")
     @Lob
     private String enemyLore;
-    @NotNull
+    @Nullable
     private String type;
     @NotNull
     private String imageURL;
