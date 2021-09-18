@@ -25,6 +25,8 @@ public class CardConfig {
 
     @Value("${MTAPI.ENV}")
     private String env;
+    @Value("${TOKEN}")
+    private String token;
 
     @Autowired
     CreatureCardRepository creatureCardRepository;
@@ -32,15 +34,15 @@ public class CardConfig {
     SpellCardRepository spellCardRepository;
 
     @Bean
-    CommandLineRunner commandLineRunner(CreatureCardRepository creatureCardRepository, SpellCardRepository spellCardRepository) {
+    CommandLineRunner cardRunner(CreatureCardRepository creatureCardRepository, SpellCardRepository spellCardRepository) {
         return args -> {
-            if (env.equals("dev")) {
+            if (env.equals("a")) {
                 for (int i = 1; i < 30; i++) {
                     // Create URL and request connection
                     URL url = new URL(String.format("https://ocffhwpt3b.execute-api.us-west-2.amazonaws.com/production/api/v1/cards?offset=%s&limit=10", i));
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     con.setRequestProperty("Content-Type", "application/json");
-                    con.setRequestProperty("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzExNDMzMjEsInBsYXRmb3JtIjoiUHVibGljIiwicGxhdGZvcm1Vc2VySWQiOiJQdWJsaWMiLCJzZXNzaW9uVGlja2V0IjpudWxsLCJyb3V0ZXMiOlsiY2FyZHMiLCJjaGFsbGVuZ2UiLCJjaGFsbGVuZ2VzIiwiY2xhbnMiLCJjb3ZlbmFudHMiLCJhcnRpZmFjdHMiLCJlbmVtaWVzIiwibGVhZGVyYm9hcmQiLCJtdXRhdG9ycyIsInNoYXJlcyIsInNpbnMiLCJwYXRjaG5vdGVzIl0sImJ1aWxkVmVyc2lvbiI6bnVsbH0.DtaBk0-QoWhs2Fc6KsiaDiLEnEe96jL3LG9ZnLRsq9U");
+                    con.setRequestProperty("Authorization", String.format("Bearer %s", token));
                     con.setRequestMethod("GET");
 
                     // Read response

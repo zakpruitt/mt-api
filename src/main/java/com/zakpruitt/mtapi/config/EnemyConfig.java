@@ -13,12 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+@Configuration
 public class EnemyConfig {
 
     @Value("${MTAPI.ENV}")
@@ -30,7 +32,7 @@ public class EnemyConfig {
     EnemyRepository enemyRepository;
 
     @Bean
-    CommandLineRunner commandLineRunner(EnemyRepository enemyRepository) {
+    CommandLineRunner enemyRunner(EnemyRepository enemyRepository) {
         return args -> {
             if (env.equals("dev")) {
                 for (int i = 1; i < 6; i++) {
@@ -38,7 +40,7 @@ public class EnemyConfig {
                     URL url = new URL(String.format("https://ocffhwpt3b.execute-api.us-west-2.amazonaws.com/production/api/v1/enemies?offset=%s&limit=10", i));
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     con.setRequestProperty("Content-Type", "application/json");
-                    con.setRequestProperty("Authorization", "Bearer " + token);
+                    con.setRequestProperty("Authorization", String.format("Bearer %s", token));
                     con.setRequestMethod("GET");
 
                     // Read response
