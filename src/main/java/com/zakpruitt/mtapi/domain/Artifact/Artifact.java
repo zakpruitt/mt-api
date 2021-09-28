@@ -3,6 +3,7 @@ package com.zakpruitt.mtapi.domain.Artifact;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -21,7 +22,7 @@ public class Artifact {
     private String artifactName;
     @NotEmpty(message = "Artifact Description is required.")
     private String artifactDescription;
-    @NotEmpty(message = "Artifact Lore is required.")
+    @Nullable
     @Lob
     private String artifactLore;
     @NotNull

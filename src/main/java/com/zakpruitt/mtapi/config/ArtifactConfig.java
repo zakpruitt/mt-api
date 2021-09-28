@@ -64,7 +64,7 @@ public class ArtifactConfig {
 
                         Artifact newArtifact = new Artifact();
                         newArtifact.setArtifactName(artifact.getString("name"));
-                        newArtifact.setArtifactLore(artifact.getString("lore"));
+                        if (!artifact.get("lore").equals(null)) newArtifact.setArtifactLore(artifact.getString("lore"));
                         newArtifact.setImageURL(artifact.getString("imageUrl"));
                         newArtifact.setArtifactDescription(DescriptionParserUtility.parseDescription(artifact.getString("description")));
                         artifactRepository.save(newArtifact);
