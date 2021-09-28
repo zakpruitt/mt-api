@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
@@ -23,4 +24,6 @@ public class Artifact {
     @NotEmpty(message = "Artifact Lore is required.")
     @Lob
     private String artifactLore;
+    @NotNull
+    private String imageURL;
 }

@@ -1,5 +1,6 @@
 package com.zakpruitt.mtapi.config;
 
+import com.zakpruitt.mtapi.domain.Artifact.Artifact;
 import com.zakpruitt.mtapi.domain.Card.CreatureCard;
 import com.zakpruitt.mtapi.domain.Card.SpellCard;
 import com.zakpruitt.mtapi.repository.ArtifactRepository;
@@ -56,40 +57,17 @@ public class ArtifactConfig {
                     JSONObject cardJSON = new JSONObject(content.toString());
 
                     // Iterate over and create card objects
-                    JSONArray cardArray = cardJSON.getJSONArray("cards");
-                    for (int j = 0; j < cardArray.length(); j++) {
-                        JSONObject card = cardArray.getJSONObject(j);
-                        if (creatureCardRepository.findByCardName(card.getString("name")) != null) continue;
-                        if (spellCardRepository.findByCardName(card.getString("name")) != null) continue;
+                    JSONArray artifactArray = cardJSON.getJSONArray("artifacts");
+                    for (int j = 0; j < artifactArray.length(); j++) {
+                        JSONObject artifact = artifactArray.getJSONObject(j);
+                        if (artifactRepository.findByArtifactName(artifact.getString("name")) != null) continue;
 
-                        switch (card.getString("cardType")) {
-                            case "Monster":
-                                CreatureCard newCreatureCard = new CreatureCard();
-                                newCreatureCard.setCardName(card.getString("name"));
-                                newCreatureCard.setCardLore(card.getString("lore"));
-                                newCreatureCard.setEmberCost(card.getInt("cost"));
-                                newCreatureCard.setSubtype(card.getString("cardSubType"));
-                                newCreatureCard.setRarity(card.getInt("rarity"));
-                                newCreatureCard.setHealth(card.getInt("health"));
-                                newCreatureCard.setDamage(card.getInt("attack"));
-                                newCreatureCard.setImageURL(card.getString("imageUrl"));
-                                newCreatureCard.setType(card.getString("cardType"));
-                                newCreatureCard.setDescription(DescriptionParserUtility.parseDescription(card.getString("description")));
-                                creatureCardRepository.save(newCreatureCard);
-                                break;
-                            case "Spell":
-                                SpellCard newSpellCard = new SpellCard();
-                                newSpellCard.setCardName(card.getString("name"));
-                                newSpellCard.setCardLore(card.getString("lore"));
-                                newSpellCard.setEmberCost(card.getInt("cost"));
-                                newSpellCard.setSubtype(card.getString("cardSubType"));
-                                newSpellCard.setRarity(card.getInt("rarity"));
-                                newSpellCard.setImageURL(card.getString("imageUrl"));
-                                newSpellCard.setType(card.getString("cardType"));
-                                newSpellCard.setDescription(DescriptionParserUtility.parseDescription(card.getString("description")));
-                                spellCardRepository.save(newSpellCard);
-                                break;
-                        }
+                        Artifact newArtifact = new Artifact();
+                        newArtifact.setArtifactName(artifact.getString("name"));
+                        newArtifact.setArtifactLore(artifact.getString("lore"));
+                        newArtifact.setImageURL(artifact.getString("imageUrl"));
+                        newArtifact.setArtifactDescription(DescriptionParserUtility.parseDescription(artifact.getString("description")));
+                        artifactRepository.save(newArtifact);
                     }
                     con.disconnect();
                 }
