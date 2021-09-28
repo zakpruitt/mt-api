@@ -24,4 +24,6 @@ public class CardEffect {
     private String cardEffectName;
     @NotEmpty(message = "Card Effect Description is required.")
     private String cardEffectDescription;
+    @NotEmpty(message = "Card Effect Type is required.")
+    private String cardType;
 }

@@ -27,7 +27,7 @@ public class EffectConfig {
     EffectRepository effectRepository;
 
     @Bean
-    CommandLineRunner enemyRunner(EffectRepository effectRepository) {
+    CommandLineRunner effectRunner(EffectRepository effectRepository) {
         return args -> {
             if (env.equals("dev")) {
                 CreateEffect("Armor", "Damage is dealt to Armor before health. Each point of Armor blocks one point of damage and is then removed.", "https://static.wikia.nocookie.net/monster_train/images/b/b0/Status_Armor.png/revision/latest?cb=20200528180947");
@@ -56,6 +56,8 @@ public class EffectConfig {
     };
 
     private void CreateEffect(String name, String description, String imageURL) {
+        if (effectRepository.findByEffectName(name) != null) return;
+
         Effect effect = new Effect();
         effect.setEffectName(name);
         effect.setEffectDescription(description);
