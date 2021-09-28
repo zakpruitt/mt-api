@@ -2,6 +2,7 @@ package com.zakpruitt.mtapi.config;
 
 import com.zakpruitt.mtapi.domain.Card.CreatureCard;
 import com.zakpruitt.mtapi.domain.Card.SpellCard;
+import com.zakpruitt.mtapi.repository.ArtifactRepository;
 import com.zakpruitt.mtapi.repository.CreatureCardRepository;
 import com.zakpruitt.mtapi.repository.SpellCardRepository;
 import com.zakpruitt.mtapi.utility.DescriptionParserUtility;
@@ -17,11 +18,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Configuration
-public class CardConfig {
+public class ArtifactConfig {
 
     @Value("${MTAPI.ENV}")
     private String env;
@@ -29,17 +28,15 @@ public class CardConfig {
     private String token;
 
     @Autowired
-    CreatureCardRepository creatureCardRepository;
-    @Autowired
-    SpellCardRepository spellCardRepository;
+    ArtifactRepository artifactRepository;
 
     @Bean
-    CommandLineRunner cardRunner(CreatureCardRepository creatureCardRepository, SpellCardRepository spellCardRepository) {
+    CommandLineRunner cardRunner(ArtifactRepository artifactRepository) {
         return args -> {
-            if (env.equals("a")) {
-                for (int i = 1; i < 30; i++) {
+            if (env.equals("dev")) {
+                for (int i = 1; i < 17; i++) {
                     // Create URL and request connection
-                    URL url = new URL(String.format("https://ocffhwpt3b.execute-api.us-west-2.amazonaws.com/production/api/v1/cards?offset=%s&limit=10", i));
+                    URL url = new URL(String.format("https://ocffhwpt3b.execute-api.us-west-2.amazonaws.com/production/api/v1/artifacts?offset=%s&limit=10", i));
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     con.setRequestProperty("Content-Type", "application/json");
                     con.setRequestProperty("Authorization", String.format("Bearer %s", token));
