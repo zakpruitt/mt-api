@@ -34,8 +34,4 @@ public class Enemy extends AuditModel {
     private int damage;
     @NotNull
     private int health;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "enemy_id", referencedColumnName = "id")
-    List<Ring> rings = new ArrayList<>();
 }
