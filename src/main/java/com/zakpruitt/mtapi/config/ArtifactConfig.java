@@ -32,7 +32,7 @@ public class ArtifactConfig {
     ArtifactRepository artifactRepository;
 
     @Bean
-    CommandLineRunner cardRunner(ArtifactRepository artifactRepository) {
+    CommandLineRunner artifactRunner(ArtifactRepository artifactRepository) {
         return args -> {
             if (env.equals("dev")) {
                 for (int i = 1; i < 17; i++) {
