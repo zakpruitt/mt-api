@@ -1,4 +1,4 @@
-package com.zakpruitt.mtapi.domain.Artifact;
+package com.zakpruitt.mtapi.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,24 +1,12 @@
 package com.zakpruitt.mtapi.config;
 
-import com.zakpruitt.mtapi.domain.Artifact.Artifact;
 import com.zakpruitt.mtapi.domain.StatusEffect.CardEffect;
-import com.zakpruitt.mtapi.domain.StatusEffect.Effect;
-import com.zakpruitt.mtapi.repository.ArtifactRepository;
 import com.zakpruitt.mtapi.repository.CardEffectRepository;
-import com.zakpruitt.mtapi.repository.EffectRepository;
-import com.zakpruitt.mtapi.utility.DescriptionParserUtility;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 @Configuration
 public class CardEffectConfig {

@@ -1,11 +1,7 @@
 package com.zakpruitt.mtapi.config;
 
-import com.zakpruitt.mtapi.domain.Artifact.Artifact;
-import com.zakpruitt.mtapi.domain.Card.CreatureCard;
-import com.zakpruitt.mtapi.domain.Card.SpellCard;
+import com.zakpruitt.mtapi.domain.Artifact;
 import com.zakpruitt.mtapi.repository.ArtifactRepository;
-import com.zakpruitt.mtapi.repository.CreatureCardRepository;
-import com.zakpruitt.mtapi.repository.SpellCardRepository;
 import com.zakpruitt.mtapi.utility.DescriptionParserUtility;
 import org.json.JSONArray;
 import org.json.JSONObject;

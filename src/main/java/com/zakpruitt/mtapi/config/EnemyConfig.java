@@ -1,12 +1,7 @@
 package com.zakpruitt.mtapi.config;
 
-import com.zakpruitt.mtapi.domain.Card.CreatureCard;
-import com.zakpruitt.mtapi.domain.Card.SpellCard;
-import com.zakpruitt.mtapi.domain.Enemy.Enemy;
-import com.zakpruitt.mtapi.repository.CreatureCardRepository;
+import com.zakpruitt.mtapi.domain.Enemy;
 import com.zakpruitt.mtapi.repository.EnemyRepository;
-import com.zakpruitt.mtapi.repository.SpellCardRepository;
-import com.zakpruitt.mtapi.utility.DescriptionParserUtility;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;

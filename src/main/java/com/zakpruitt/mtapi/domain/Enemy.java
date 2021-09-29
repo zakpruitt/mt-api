@@ -1,4 +1,4 @@
-package com.zakpruitt.mtapi.domain.Enemy;
+package com.zakpruitt.mtapi.domain;
 
 import com.zakpruitt.mtapi.domain.AuditModel;
 import lombok.AllArgsConstructor;
