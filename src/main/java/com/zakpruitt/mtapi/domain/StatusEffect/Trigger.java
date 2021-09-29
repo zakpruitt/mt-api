@@ -3,6 +3,7 @@ package com.zakpruitt.mtapi.domain.StatusEffect;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -22,6 +23,6 @@ public class Trigger {
     private String triggerName;
     @NotEmpty(message = "Trigger Description is required.")
     private String triggerDescription;
-    @NotNull
+    @Nullable
     private String imageURL;
 }
