@@ -20,7 +20,7 @@ public class BuffConfig {
     BuffRepository buffRepository;
 
     @Bean
-    CommandLineRunner effectRunner(EffectRepository effectRepository) {
+    CommandLineRunner buffRunner(EffectRepository effectRepository) {
         return args -> {
             if (env.equals("dev")) {
                 CreateBuff("Damage Shield", "Nullify the next source of damage.", "https://static.wikia.nocookie.net/monster_train/images/a/a5/Status_Damage_Shield.png/revision/latest?cb=20200528180957");
