@@ -5,4 +5,5 @@ import com.zakpruitt.mtapi.domain.StatusEffect.CardEffect;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MutatorRepository extends JpaRepository<Mutator, Long> {
+    Mutator findByMutatorName(String mutatorName);
 }
