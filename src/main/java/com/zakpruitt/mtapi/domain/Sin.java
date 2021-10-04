@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Sins extends AuditModel {
+public class Sin extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
