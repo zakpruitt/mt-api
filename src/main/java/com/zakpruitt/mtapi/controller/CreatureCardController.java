@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController("/api/v1")
-@RequestMapping(path = "/api/v1/creature")
+@RequestMapping(path = "/api/v1")
 public class CreatureCardController {
 
     @Autowired
     private CreatureCardService creatureCardService;
 
-    @GetMapping("/cards")
+    @GetMapping("/creature-cards")
     public Map<String, CreatureCard> findAllCreatureCards() {
         return creatureCardService.getCards();
     }
 
-    @GetMapping("/cards/{name}")
+    @GetMapping("/creature-card/{name}")
     public CreatureCard findCreatureCardByName(@PathVariable String name) {
         return creatureCardService.getCreatureCardByName(name);
     }

@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping(path = "/api/v1/spell")
+@RequestMapping(path = "/api/v1")
 public class SpellCardController {
     @Autowired
     private SpellCardService spellCardService;
 
-    @GetMapping("/cards")
+    @GetMapping("/spell-cards")
     public Map<String, SpellCard> findAllSpellCards() {
         return spellCardService.getCards();
     }
 
-    @GetMapping("/cards/{name}")
+    @GetMapping("/spell-card/{name}")
     public SpellCard findSpellCardByName(@PathVariable String name) {
         return spellCardService.getSpellCardByName(name);
     }

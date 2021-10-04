@@ -22,7 +22,7 @@ public class CardEffectController {
         return cardEffectService.getCardEffects();
     }
 
-    @GetMapping("/buffs/{name}")
+    @GetMapping("/card-effect/{name}")
     public CardEffect findCardEffectByName(@PathVariable String name) {
         return cardEffectService.getCardEffectByName(name);
     }
