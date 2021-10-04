@@ -18,7 +18,7 @@ public class SinService {
     @Autowired
     SinRepository sinRepository;
 
-    public Map<String, Sin> getMutators() {
+    public Map<String, Sin> getSins() {
         Map<String, Sin> allSins = new HashMap<>();
         allSins.putAll(sinRepository.findAll().stream().collect(Collectors.toMap(Sin::getSinName, Function.identity())));
         return allSins;
