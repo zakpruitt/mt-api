@@ -36,7 +36,7 @@ public class CardConfig {
     @Bean
     CommandLineRunner cardRunner(CreatureCardRepository creatureCardRepository, SpellCardRepository spellCardRepository) {
         return args -> {
-            if (env.equals("a")) {
+            if (env.equals("dev")) {
                 for (int i = 1; i < 30; i++) {
                     // Create URL and request connection
                     URL url = new URL(String.format("https://ocffhwpt3b.execute-api.us-west-2.amazonaws.com/production/api/v1/cards?offset=%s&limit=10", i));

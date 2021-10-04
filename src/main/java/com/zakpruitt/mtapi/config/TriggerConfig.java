@@ -42,7 +42,7 @@ public class TriggerConfig {
                 CreateTrigger("Revenge", "Triggers when damaged.", "https://static.wikia.nocookie.net/monster_train/images/6/69/Status_Revenge.png/revision/latest?cb=20200528181041");
                 CreateTrigger("Slay", "Triggers after dealing a killing blow.", "https://static.wikia.nocookie.net/monster_train/images/a/a3/Status_Slay.png/revision/latest?cb=20200528181045");
                 CreateTrigger("Strike", "Triggers when attacking.", "https://static.wikia.nocookie.net/monster_train/images/f/f4/Status_Strike.png/revision/latest?cb=20200528181051");
-                CreateTrigger("Summon", "Triggers when played.", null);
+                CreateTrigger("Summon", "Triggers when played.", "");
             }
         };
     };
