@@ -5,4 +5,5 @@ import com.zakpruitt.mtapi.domain.StatusEffect.CardEffect;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ClanRepository extends JpaRepository<Clan, Long> {
+    Clan findByClanName(String clanName);
 }

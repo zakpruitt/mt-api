@@ -23,6 +23,8 @@ public class Clan extends AuditModel {
     @NotEmpty(message = "Clan Lore is required.")
     @Lob
     private String clanDescription;
+    @NotEmpty
+    private String clanSubDescription;
     @NotNull
     private String imageURL;
 }
