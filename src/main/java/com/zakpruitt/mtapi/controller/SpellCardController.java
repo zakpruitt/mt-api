@@ -26,14 +26,4 @@ public class SpellCardController {
     public SpellCard findSpellCardByName(@PathVariable String name) {
         return spellCardService.getSpellCardByName(name);
     }
-
-    @PostMapping("/addSpellCard")
-    public String addSpellCard(@RequestBody SpellCard spellCard) {
-        try {
-            spellCardService.saveSpellCard(spellCard);
-        } catch (Exception ex) {
-            return ex.getMessage();
-        }
-        return String.format("SpellCard %s successfully added.", spellCard.getCardName());
-    }
 }

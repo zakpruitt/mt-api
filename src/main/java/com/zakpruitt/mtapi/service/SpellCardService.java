@@ -26,11 +26,4 @@ public class SpellCardService {
     public SpellCard getSpellCardByName(String name) {
         return spellCardRepository.findByCardName(name);
     }
-
-    public SpellCard saveSpellCard(SpellCard spellCard) throws Exception {
-        if (spellCardRepository.findByCardName(spellCard.getCardName()) != null) {
-            throw new Exception("Card with that name already exists!");
-        }
-        return spellCardRepository.save(spellCard);
-    }
 }

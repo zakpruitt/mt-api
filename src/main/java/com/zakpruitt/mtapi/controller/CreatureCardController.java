@@ -25,14 +25,4 @@ public class CreatureCardController {
     public CreatureCard findCreatureCardByName(@PathVariable String name) {
         return creatureCardService.getCreatureCardByName(name);
     }
-
-    @PostMapping("/addCreatureCard")
-    public String addCreatureCard(@RequestBody CreatureCard creatureCard) {
-        try {
-            creatureCardService.saveCreatureCard(creatureCard);
-        } catch (Exception ex) {
-            return ex.getMessage();
-        }
-        return String.format("CreatureCard %s successfully added.", creatureCard.getCardName());
-    }
 }
