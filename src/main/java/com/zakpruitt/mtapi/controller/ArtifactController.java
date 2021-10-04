@@ -25,7 +25,7 @@ public class ArtifactController {
     }
 
     @GetMapping("/cards/{name}")
-    public CreatureCard findCreatureCardByName(@PathVariable String name) {
-        return creatureCardService.getCreatureCardByName(name);
+    public Artifact findArtifactByName(@PathVariable String name) {
+        return artifactService.getArtifactByName(name);
     }
 }

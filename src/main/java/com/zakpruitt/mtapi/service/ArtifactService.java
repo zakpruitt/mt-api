@@ -22,4 +22,8 @@ public class ArtifactService {
         allArtifacts.putAll(artifactRepository.findAll().stream().collect(Collectors.toMap(Artifact::getArtifactName, Function.identity())));
         return allArtifacts;
     }
+
+    public Artifact getArtifactByName(String name) {
+        return artifactRepository.findByArtifactName(name);
+    }
 }
