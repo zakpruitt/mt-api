@@ -1,8 +1,6 @@
 package com.zakpruitt.mtapi.controller;
 
-import com.zakpruitt.mtapi.domain.StatusEffect.Buff;
 import com.zakpruitt.mtapi.domain.StatusEffect.CardEffect;
-import com.zakpruitt.mtapi.service.BuffService;
 import com.zakpruitt.mtapi.service.CardEffectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

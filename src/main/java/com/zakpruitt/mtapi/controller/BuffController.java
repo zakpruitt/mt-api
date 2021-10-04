@@ -1,8 +1,6 @@
 package com.zakpruitt.mtapi.controller;
 
-import com.zakpruitt.mtapi.domain.Artifact;
 import com.zakpruitt.mtapi.domain.StatusEffect.Buff;
-import com.zakpruitt.mtapi.service.ArtifactService;
 import com.zakpruitt.mtapi.service.BuffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

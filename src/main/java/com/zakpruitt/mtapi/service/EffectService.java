@@ -1,8 +1,6 @@
 package com.zakpruitt.mtapi.service;
 
-import com.zakpruitt.mtapi.domain.StatusEffect.Debuff;
 import com.zakpruitt.mtapi.domain.StatusEffect.Effect;
-import com.zakpruitt.mtapi.repository.DebuffRepository;
 import com.zakpruitt.mtapi.repository.EffectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

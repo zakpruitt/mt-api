@@ -18,13 +18,12 @@ import java.net.URL;
 @Configuration
 public class EnemyConfig {
 
+    @Autowired
+    EnemyRepository enemyRepository;
     @Value("${MTAPI.ENV}")
     private String env;
     @Value("${TOKEN}")
     private String token;
-
-    @Autowired
-    EnemyRepository enemyRepository;
 
     @Bean
     CommandLineRunner enemyRunner(EnemyRepository enemyRepository) {
@@ -69,5 +68,6 @@ public class EnemyConfig {
                 }
             }
         };
-    };
+    }
+
 }

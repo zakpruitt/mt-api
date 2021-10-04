@@ -1,8 +1,6 @@
 package com.zakpruitt.mtapi.config;
 
-import com.zakpruitt.mtapi.domain.Mutator;
 import com.zakpruitt.mtapi.domain.Sin;
-import com.zakpruitt.mtapi.repository.MutatorRepository;
 import com.zakpruitt.mtapi.repository.SinRepository;
 import com.zakpruitt.mtapi.utility.DescriptionParserUtility;
 import org.json.JSONArray;

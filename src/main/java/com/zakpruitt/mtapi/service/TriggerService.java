@@ -1,6 +1,5 @@
 package com.zakpruitt.mtapi.service;
 
-import com.zakpruitt.mtapi.domain.Card.SpellCard;
 import com.zakpruitt.mtapi.domain.StatusEffect.Trigger;
 import com.zakpruitt.mtapi.repository.TriggerRepository;
 import org.springframework.beans.factory.annotation.Autowired;

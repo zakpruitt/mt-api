@@ -1,10 +1,7 @@
 package com.zakpruitt.mtapi.config;
 
-import com.zakpruitt.mtapi.domain.StatusEffect.Buff;
 import com.zakpruitt.mtapi.domain.StatusEffect.Debuff;
-import com.zakpruitt.mtapi.repository.BuffRepository;
 import com.zakpruitt.mtapi.repository.DebuffRepository;
-import com.zakpruitt.mtapi.repository.EffectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -14,11 +11,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DebuffConfig {
 
-    @Value("${MTAPI.ENV}")
-    private String env;
-
     @Autowired
     DebuffRepository debuffRepository;
+    @Value("${MTAPI.ENV}")
+    private String env;
 
     @Bean
     CommandLineRunner debuffRunner(DebuffRepository debuffRepository) {
@@ -35,7 +31,7 @@ public class DebuffConfig {
                 CreateDebuff("Spell Weakness", "The next time the unit is hit by a damage spell, it takes that much damage again for each stack of Spell Weakness.", "https://static.wikia.nocookie.net/monster_train/images/7/71/Status_Spell_Weakness.png/revision/latest?cb=20200528181048");
             }
         };
-    };
+    }
 
     private void CreateDebuff(String name, String description, String imageURL) {
         if (debuffRepository.findByDebuffName(name) != null) return;

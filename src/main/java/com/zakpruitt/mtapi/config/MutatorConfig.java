@@ -1,12 +1,7 @@
 package com.zakpruitt.mtapi.config;
 
-import com.zakpruitt.mtapi.domain.Card.CreatureCard;
-import com.zakpruitt.mtapi.domain.Card.SpellCard;
-import com.zakpruitt.mtapi.domain.Clan;
 import com.zakpruitt.mtapi.domain.Mutator;
-import com.zakpruitt.mtapi.repository.ClanRepository;
 import com.zakpruitt.mtapi.repository.MutatorRepository;
-import com.zakpruitt.mtapi.utility.DescriptionParserUtility;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;

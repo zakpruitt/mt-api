@@ -1,8 +1,6 @@
 package com.zakpruitt.mtapi.service;
 
-import com.zakpruitt.mtapi.domain.Mutator;
 import com.zakpruitt.mtapi.domain.Sin;
-import com.zakpruitt.mtapi.repository.MutatorRepository;
 import com.zakpruitt.mtapi.repository.SinRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

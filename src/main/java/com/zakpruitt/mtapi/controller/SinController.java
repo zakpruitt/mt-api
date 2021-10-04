@@ -1,8 +1,6 @@
 package com.zakpruitt.mtapi.controller;
 
-import com.zakpruitt.mtapi.domain.Mutator;
 import com.zakpruitt.mtapi.domain.Sin;
-import com.zakpruitt.mtapi.service.MutatorService;
 import com.zakpruitt.mtapi.service.SinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

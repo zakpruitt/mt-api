@@ -25,7 +25,7 @@ public class SwaggerConfig {
                 .apiInfo(getApiInformation());
     }
 
-    private ApiInfo getApiInformation(){
+    private ApiInfo getApiInformation() {
         return new ApiInfo("Demo REST API",
                 "This is a Demo API created using Spring Boot",
                 "1.0",

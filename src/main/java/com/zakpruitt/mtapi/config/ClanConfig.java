@@ -1,7 +1,6 @@
 package com.zakpruitt.mtapi.config;
 
 import com.zakpruitt.mtapi.domain.Clan;
-import com.zakpruitt.mtapi.domain.Enemy;
 import com.zakpruitt.mtapi.repository.ClanRepository;
 import org.json.JSONArray;
 import org.json.JSONObject;

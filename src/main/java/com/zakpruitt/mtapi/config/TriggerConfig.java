@@ -1,8 +1,6 @@
 package com.zakpruitt.mtapi.config;
 
-import com.zakpruitt.mtapi.domain.StatusEffect.Effect;
 import com.zakpruitt.mtapi.domain.StatusEffect.Trigger;
-import com.zakpruitt.mtapi.repository.EffectRepository;
 import com.zakpruitt.mtapi.repository.TriggerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,11 +11,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TriggerConfig {
 
-    @Value("${MTAPI.ENV}")
-    private String env;
-
     @Autowired
     TriggerRepository triggerRepository;
+    @Value("${MTAPI.ENV}")
+    private String env;
 
     @Bean
     CommandLineRunner triggerRunner(TriggerRepository triggerRepository) {
@@ -45,7 +42,7 @@ public class TriggerConfig {
                 CreateTrigger("Summon", "Triggers when played.", "");
             }
         };
-    };
+    }
 
     private void CreateTrigger(String name, String description, String imageURL) {
         if (triggerRepository.findByTriggerName(name) != null) return;

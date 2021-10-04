@@ -11,11 +11,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class CardEffectConfig {
 
-    @Value("${MTAPI.ENV}")
-    private String env;
-
     @Autowired
     CardEffectRepository cardEffectRepository;
+    @Value("${MTAPI.ENV}")
+    private String env;
 
     @Bean
     CommandLineRunner cardEffectRunner(CardEffectRepository cardEffectRepository) {
@@ -44,7 +43,7 @@ public class CardEffectConfig {
                 CreateCardEffect("X Cost", "Spend all of your remaining Ember. The amount spent magnifies the result.", "Spell");
             }
         };
-    };
+    }
 
     private void CreateCardEffect(String name, String description, String type) {
         if (cardEffectRepository.findByCardEffectName(name) != null) return;

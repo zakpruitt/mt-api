@@ -1,7 +1,6 @@
 package com.zakpruitt.mtapi.config;
 
 import com.zakpruitt.mtapi.domain.StatusEffect.Buff;
-import com.zakpruitt.mtapi.domain.StatusEffect.Effect;
 import com.zakpruitt.mtapi.repository.BuffRepository;
 import com.zakpruitt.mtapi.repository.EffectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +12,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BuffConfig {
 
-    @Value("${MTAPI.ENV}")
-    private String env;
-
     @Autowired
     BuffRepository buffRepository;
+    @Value("${MTAPI.ENV}")
+    private String env;
 
     @Bean
     CommandLineRunner buffRunner(EffectRepository effectRepository) {
@@ -33,7 +31,7 @@ public class BuffConfig {
                 CreateBuff("Stealth", "not a target in combat. Loses 1 stack every turn.", "https://static.wikia.nocookie.net/monster_train/images/5/51/Status_Stealth.png/revision/latest?cb=20200528181050");
             }
         };
-    };
+    }
 
     private void CreateBuff(String name, String description, String imageURL) {
         if (buffRepository.findByBuffName(name) != null) return;

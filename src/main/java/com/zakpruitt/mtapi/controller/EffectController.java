@@ -1,8 +1,6 @@
 package com.zakpruitt.mtapi.controller;
 
-import com.zakpruitt.mtapi.domain.Clan;
 import com.zakpruitt.mtapi.domain.StatusEffect.Effect;
-import com.zakpruitt.mtapi.service.ClanService;
 import com.zakpruitt.mtapi.service.EffectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

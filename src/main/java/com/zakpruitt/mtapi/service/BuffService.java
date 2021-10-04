@@ -1,8 +1,6 @@
 package com.zakpruitt.mtapi.service;
 
-import com.zakpruitt.mtapi.domain.Artifact;
 import com.zakpruitt.mtapi.domain.StatusEffect.Buff;
-import com.zakpruitt.mtapi.repository.ArtifactRepository;
 import com.zakpruitt.mtapi.repository.BuffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

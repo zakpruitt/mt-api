@@ -11,11 +11,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class EffectConfig {
 
-    @Value("${MTAPI.ENV}")
-    private String env;
-
     @Autowired
     EffectRepository effectRepository;
+    @Value("${MTAPI.ENV}")
+    private String env;
 
     @Bean
     CommandLineRunner effectRunner(EffectRepository effectRepository) {
@@ -44,7 +43,7 @@ public class EffectConfig {
                 CreateEffect("Trample", "When attacking, excess damage is applied to the subsequent enemy unit.", "https://static.wikia.nocookie.net/monster_train/images/b/b1/Status_Trample.png/revision/latest?cb=20200618030918");
             }
         };
-    };
+    }
 
     private void CreateEffect(String name, String description, String imageURL) {
         if (effectRepository.findByEffectName(name) != null) return;

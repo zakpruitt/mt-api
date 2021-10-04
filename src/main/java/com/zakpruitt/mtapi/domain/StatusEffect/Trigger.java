@@ -7,13 +7,12 @@ import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="trigger_effect")
+@Table(name = "trigger_effect")
 public class Trigger {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

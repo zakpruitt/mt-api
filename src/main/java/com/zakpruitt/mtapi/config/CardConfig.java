@@ -17,21 +17,18 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Configuration
 public class CardConfig {
-
-    @Value("${MTAPI.ENV}")
-    private String env;
-    @Value("${TOKEN}")
-    private String token;
 
     @Autowired
     CreatureCardRepository creatureCardRepository;
     @Autowired
     SpellCardRepository spellCardRepository;
+    @Value("${MTAPI.ENV}")
+    private String env;
+    @Value("${TOKEN}")
+    private String token;
 
     @Bean
     CommandLineRunner cardRunner(CreatureCardRepository creatureCardRepository, SpellCardRepository spellCardRepository) {

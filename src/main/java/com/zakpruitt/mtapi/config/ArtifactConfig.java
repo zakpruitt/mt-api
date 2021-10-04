@@ -19,13 +19,12 @@ import java.net.URL;
 @Configuration
 public class ArtifactConfig {
 
+    @Autowired
+    ArtifactRepository artifactRepository;
     @Value("${MTAPI.ENV}")
     private String env;
     @Value("${TOKEN}")
     private String token;
-
-    @Autowired
-    ArtifactRepository artifactRepository;
 
     @Bean
     CommandLineRunner artifactRunner(ArtifactRepository artifactRepository) {

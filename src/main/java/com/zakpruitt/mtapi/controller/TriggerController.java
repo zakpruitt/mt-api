@@ -1,8 +1,6 @@
 package com.zakpruitt.mtapi.controller;
 
-import com.zakpruitt.mtapi.domain.Sin;
 import com.zakpruitt.mtapi.domain.StatusEffect.Trigger;
-import com.zakpruitt.mtapi.service.SinService;
 import com.zakpruitt.mtapi.service.TriggerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

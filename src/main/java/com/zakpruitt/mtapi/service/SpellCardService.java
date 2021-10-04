@@ -1,8 +1,6 @@
 package com.zakpruitt.mtapi.service;
 
-import com.zakpruitt.mtapi.domain.Card.CreatureCard;
 import com.zakpruitt.mtapi.domain.Card.SpellCard;
-import com.zakpruitt.mtapi.repository.CreatureCardRepository;
 import com.zakpruitt.mtapi.repository.SpellCardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

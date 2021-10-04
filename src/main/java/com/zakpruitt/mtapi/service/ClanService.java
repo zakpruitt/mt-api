@@ -1,8 +1,6 @@
 package com.zakpruitt.mtapi.service;
 
 import com.zakpruitt.mtapi.domain.Clan;
-import com.zakpruitt.mtapi.domain.StatusEffect.CardEffect;
-import com.zakpruitt.mtapi.repository.CardEffectRepository;
 import com.zakpruitt.mtapi.repository.ClanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
