@@ -22,7 +22,7 @@ public class EffectController {
         return effectService.getEffects();
     }
 
-    @GetMapping("/effect/{name}")
+    @GetMapping("/effects/{name}")
     public Effect findEffectByName(@PathVariable String name) {
         return effectService.getEffectByName(name);
     }

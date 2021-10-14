@@ -22,7 +22,7 @@ public class MutatorController {
         return mutatorService.getMutators();
     }
 
-    @GetMapping("/mutator/{name}")
+    @GetMapping("/mutators/{name}")
     public Mutator findMutatorByName(@PathVariable String name) {
         return mutatorService.getMutatorByName(name);
     }

@@ -22,7 +22,7 @@ public class SinController {
         return sinService.getSins();
     }
 
-    @GetMapping("/sin/{name}")
+    @GetMapping("/sins/{name}")
     public Sin findSinByName(@PathVariable String name) {
         return sinService.getSinByName(name);
     }

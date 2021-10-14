@@ -22,7 +22,7 @@ public class EnemyController {
         return enemyService.getEnemies();
     }
 
-    @GetMapping("/enemy/{name}")
+    @GetMapping("/enemies/{name}")
     public Enemy findEnemyByName(@PathVariable String name) {
         return enemyService.getEnemyByName(name);
     }

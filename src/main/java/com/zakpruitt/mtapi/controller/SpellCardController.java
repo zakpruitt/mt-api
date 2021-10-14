@@ -21,7 +21,7 @@ public class SpellCardController {
         return spellCardService.getCards();
     }
 
-    @GetMapping("/spell-card/{name}")
+    @GetMapping("/spell-cards/{name}")
     public SpellCard findSpellCardByName(@PathVariable String name) {
         return spellCardService.getSpellCardByName(name);
     }

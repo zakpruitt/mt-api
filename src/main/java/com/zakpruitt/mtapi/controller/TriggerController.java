@@ -22,7 +22,7 @@ public class TriggerController {
         return triggerService.getTriggers();
     }
 
-    @GetMapping("/trigger/{name}")
+    @GetMapping("/triggers/{name}")
     public Trigger findTriggerByName(@PathVariable String name) {
         return triggerService.getTriggerByName(name);
     }

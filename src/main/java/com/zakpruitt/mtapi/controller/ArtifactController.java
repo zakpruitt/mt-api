@@ -22,7 +22,7 @@ public class ArtifactController {
         return artifactService.getArtifacts();
     }
 
-    @GetMapping("/cards/{name}")
+    @GetMapping("/artifacts/{name}")
     public Artifact findArtifactByName(@PathVariable String name) {
         return artifactService.getArtifactByName(name);
     }
