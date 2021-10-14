@@ -26,7 +26,7 @@ public class SwaggerConfig {
     }
 
     private ApiInfo getApiInformation() {
-        return new ApiInfo("Demo REST API",
+        return new ApiInfo("Monster Train REST API",
                 "This is a Demo API created using Spring Boot",
                 "1.0",
                 "API Terms of Service URL",
