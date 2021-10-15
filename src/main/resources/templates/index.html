@@ -9,7 +9,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>API - Documentation</title>
+    <title>MT API - Documentation</title>
     <meta name="description" content="">
     <meta name="author" content="ticlekiwi">
 
@@ -17,23 +17,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/hightlightjs-dark.css">
+    <link rel="stylesheet" href="css/hightlightjs-dark.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&family=Source+Code+Pro:wght@300&display=swap"
             rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css" media="all">
+    <link rel="stylesheet" href="css/style.css" media="all">
     <script>hljs.initHighlightingOnLoad();</script>
 </head>
 
 <body>
 <div class="left-menu">
     <div class="content-logo">
+        <!-- Logo -->
         <div class="logo">
-            <img src="images/logo.png" height="32" />
-            <span>MT API Docs</span>
+            <img alt="platform by Emily van den Heever from the Noun Project"
+                 title="platform by Emily van den Heever from the Noun Project" src="images/logo.png" height="32" />
+            <span>MT API</span>
         </div>
         <button class="burger-menu-icon" id="button-menu-mobile">
             <svg width="34" height="34" viewBox="0 0 100 100">
@@ -49,12 +51,13 @@
     </div>
     <div class="mobile-menu-closer"></div>
     <div class="content-menu">
+        <!-- Version -->
         <div class="content-infos">
             <div class="info"><b>Version:</b> 1.0.0</div>
             <div class="info"><b>Last Updated:</b> 13th Oct, 2021</div>
         </div>
+        <!-- Sidebar -->
         <ul>
-            <!-- Sidebar -->
             <li class="scroll-to-link active" data-target="content-get-started">
                 <a>GET STARTED</a>
             </li>
@@ -112,22 +115,30 @@
         https://mt-api.tech/api/v1
                 </pre>
             <p>
-                The MT (Monster Train) API provides a programmatic access to machine readable data from Shiny Shoe's Monster Train. For example, this API
-                enables a developer to iterate through and access hundreds of cards, artifacts, enemies, etc within seconds.
+                The MT (Monster Train) API provides a programmatic access to machine readable data from Shiny Shoe's
+                Monster Train. For example, this API
+                enables a developer to iterate through and access hundreds of cards, artifacts, enemies, etc within
+                seconds.
             </p>
             <p>
-                MT API is organized and built with <strong>REST</strong> methodologies. This API has predictable resource-oriented URLs,
+                MT API is organized and built with <strong>REST</strong> methodologies. This API has predictable
+                resource-oriented URLs,
                 returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
             </p>
             <p>
-                MT API and myself are <strong>not</strong> affilitated whatsoever with Monster Train or Shiny Shoe, making the MT API unofficial.
-                All information distributed here is provided as-is and I (the author) cannot be responsible for your use of the information contained in or linked from mt-api.tech.
+                MT API and myself are <strong>not</strong> affilitated whatsoever with Monster Train or Shiny Shoe,
+                making the MT API unofficial.
+                All information distributed here is provided as-is and I (the author) cannot be responsible for your
+                use of the information contained in or linked from mt-api.tech.
             </p>
-
-
             <p>
-                To clarify: to use this API, you do not need an <strong>API key</strong>. I strongly reccomend you use <a href="https://www.postman.com">Postman</a> to perform requests
+                To clarify: to use this API, you do not need an <strong>API key</strong>. I strongly reccomend you
+                use <a href="https://www.postman.com">Postman</a> to perform requests
                 (outside of any programming language).
+            </p>
+            <p>
+                To access the GitHub repository, click the link in the top right! Feel free to submit improvements.
+                If you find any bugs or erroneous data, please email me at <strong>pruittzn@gmail.com</strong>.
             </p>
         </div>
         <!-- Artifacts -->
@@ -139,7 +150,7 @@ curl -X GET "https://www.mt-api.tech/api/v1/artifacts" -H "accept: */*"
 
 
 # curl example for a specific artifacts
-curl -X GET "https://www.mt-api.tech/api/v1/cards/Mind%20Hoard" -H "accept: */*"
+curl -X GET "https://www.mt-api.tech/api/v1/artifacts/Mind%20Hoard" -H "accept: */*"
                 </code></pre>
             <p>
                 To get all artifacts, you need to make a GET call to the following url :<br>
@@ -237,7 +248,7 @@ curl -X GET "https://www.mt-api.tech/api/v1/status/buffs/spikes" \
                 <code class="higlighted break-word">https://mt-api.tech/api/v1/status/buffs</code>
             </p>
             <p>
-                To get a specific artifact, you need to make a GET call to the following url :<br>
+                To get a specific buff, you need to make a GET call to the following url :<br>
                 <code class="higlighted break-word">https://mt-api.tech/api/v1/status/buffs/{buff name}</code>
 
                 <br><br>
@@ -307,7 +318,7 @@ Result example :
         <div class="overflow-hidden content-section" id="content-get-cards">
             <h2>GET Cards</h2>
             <pre><code class="bash">
-# curl example for get all buffs
+# curl example for get all cards
 curl -X GET "https://www.mt-api.tech/api/v1/cards" -H "accept: */*"
                 </code></pre>
             <p>
@@ -318,7 +329,8 @@ curl -X GET "https://www.mt-api.tech/api/v1/cards" -H "accept: */*"
                 To get a specific card, you need to use the Creature Card or Spell Card routes.
             </p>
             <p>
-                Please note that, currently, clan is set to NULL for each card and capacity is set to 0 for each Creature Card.
+                Please note that, currently, clan is set to NULL for each card and capacity is set to 0 for each
+                Creature Card.
                 All tags have been parsed out of the description, but some escape characters remain on plain text.
             </p>
             <br>
@@ -378,7 +390,8 @@ Result example :
                 <tr>
                     <td>cardName</td>
                     <td>String</td>
-                    <td>The card's name. This field is also used to request a specific card (in other requests).</td>
+                    <td>The card's name. This field is also used to request a specific card (in other requests).
+                    </td>
                 </tr>
                 <tr>
                     <td>description</td>
@@ -431,12 +444,13 @@ curl -X GET "https://www.mt-api.tech/api/v1/status/card-effects/reserve" \
 -H "accept: */*"
                 </code></pre>
             <p>
-                To get all buffs, you need to make a GET call to the following url :<br>
+                To get all card effects, you need to make a GET call to the following url :<br>
                 <code class="higlighted break-word">https://www.mt-api.tech/api/v1/status/card-effects</code>
             </p>
             <p>
-                To get a specific artifact, you need to make a GET call to the following url :<br>
-                <code class="higlighted break-word">https://www.mt-api.tech/api/v1/status/card-effects/{card effect name}</code>
+                To get a specific card effect, you need to make a GET call to the following url :<br>
+                <code
+                        class="higlighted break-word">https://www.mt-api.tech/api/v1/status/card-effects/{card effect name}</code>
 
                 <br><br>
 
@@ -510,7 +524,7 @@ curl -X GET "https://www.mt-api.tech/api/v1/clans" -H "accept: */*"
 
 
 # curl example for a specific clan
-curl -X GET "https://www.mt-api.tech/api/v1/clans/{clan name}" -H "accept: */*"
+curl -X GET "https://www.mt-api.tech/api/v1/clans/umbra" -H "accept: */*"
                 </code></pre>
             <p>
                 To get all clans, you need to make a GET call to the following url :<br>
@@ -578,7 +592,7 @@ Result example :
                 <tr>
                     <td>id</td>
                     <td>Integer</td>
-                    <td>The buff's ID. This is not the in-game ID.</td>
+                    <td>The clan's ID. This is not the in-game ID.</td>
                 </tr>
                 <tr>
                     <td>imageURL</td>
@@ -597,7 +611,7 @@ curl -X GET "https://www.mt-api.tech/api/v1/creature-cards" -H "accept: */*"
 
 
 # curl example for a specific creature card
-curl -X GET "https://www.mt-api.tech/api/v1/creature-cards/{creature name}" \
+curl -X GET "https://www.mt-api.tech/api/v1/creature-cards/glareminder" \
 -H "accept: */*"
                 </code></pre>
             <p>
@@ -606,14 +620,15 @@ curl -X GET "https://www.mt-api.tech/api/v1/creature-cards/{creature name}" \
             </p>
             <p>
                 To get a specific creature card, you need to make a GET call to the following url :<br>
-                <code class="higlighted break-word">https://www.mt-api.tech/api/v1/creature-cards/{creature name}</code>
+                <code
+                        class="higlighted break-word">https://www.mt-api.tech/api/v1/creature-cards/{creature name}</code>
 
                 <br><br>
 
                 Replace <code>{creature name}</code> with the name of your specific creature name.
             </p>
             <p>
-                Please refer to the Card section of the documnetation for further information on Creature Card.
+                Please refer to the Card section of the documentation for further information on Creature Card.
             </p>
             <br>
             <pre><code class="json">
@@ -685,16 +700,640 @@ Result example :
                 </tbody>
             </table>
         </div>
+        <!-- Debuff -->
+        <div class="overflow-hidden content-section" id="content-get-debuffs">
+            <h2>GET Debuffs</h2>
+            <pre><code class="bash">
+# curl example for get all debuffs
+curl -X GET "https://mt-api.tech/api/v1/status/debuffs" -H "accept: */*"
+
+
+# curl example for a specific debuff
+curl -X GET "https://mt-api.tech/api/v1/status/debuffs/dazed" \
+-H "accept: */*"
+                </code></pre>
+            <p>
+                To get all debuffs, you need to make a GET call to the following url :<br>
+                <code class="higlighted break-word">https://mt-api.tech/api/v1/status/debuffs</code>
+            </p>
+            <p>
+                To get a specific debuff, you need to make a GET call to the following url :<br>
+                <code class="higlighted break-word">https://mt-api.tech/api/v1/status/debuffs/{debuff name}</code>
+
+                <br><br>
+
+                Replace <code>{debuff name}</code> with the name of your specific debuff.
+            </p>
+            <br>
+            <pre><code class="json">
+Result example :
+
+{
+    "Dazed": {
+        "id": 618,
+        "debuffName": "Dazed",
+        "debuffDescription": "As long as a unit is Dazed, it can't attack or use any Action or Resolve abilities.",
+        "imageURL": "https://static.wikia.nocookie.net/monster_train/images/9/92/Status_Dazed.png/revision/latest?cb=20200528181000"
+    },
+    "Frostbite": {
+        "id": 620,
+        "debuffName": "Frostbite",
+        "debuffDescription": "Unit takes 1 damage per stack at the end of turn. Decreases every turn.",
+        "imageURL": "https://static.wikia.nocookie.net/monster_train/images/8/86/Status_Frostbite.png/revision/latest?cb=20200528181009"
+    },
+    "Sap": {
+        "id": 625,
+        "debuffName": "Sap",
+        "debuffDescription": "-2 Attack per stack. Decreases every turn.",
+        "imageURL": "https://static.wikia.nocookie.net/monster_train/images/f/fa/Status_Sap.png/revision/latest?cb=20200528181043"
+    },
+    ...
+}
+                </code></pre>
+            <h4>DEBUFF MODEL</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>debuffDescription</td>
+                    <td>String</td>
+                    <td>The in-game description of the debuff.</td>
+                </tr>
+                <tr>
+                    <td>debuffName</td>
+                    <td>String</td>
+                    <td>The in-game damage name of the debuff. This field is also used to query a specific
+                        debuff.</td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>Integer</td>
+                    <td>The debuff's ID. This is not the in-game ID.</td>
+                </tr>
+                <tr>
+                    <td>imageURL</td>
+                    <td>String</td>
+                    <td>The official image URL of the debuff.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Effect -->
+        <div class="overflow-hidden content-section" id="content-get-effects">
+            <h2>GET Effects</h2>
+            <pre><code class="bash">
+# curl example for get all effects
+curl -X GET "https://www.mt-api.tech/api/v1/status/effects" -H "accept: */*"
+
+
+# curl example for a specific effects
+curl -X GET "https://www.mt-api.tech/api/v1/status/effects/trample" \
+-H "accept: */*"
+                </code></pre>
+            <p>
+                To get all effects, you need to make a GET call to the following url :<br>
+                <code class="higlighted break-word">https://www.mt-api.tech/api/v1/status/effects</code>
+            </p>
+            <p>
+                To get a specific effect, you need to make a GET call to the following url :<br>
+                <code
+                        class="higlighted break-word">https://www.mt-api.tech/api/v1/status/effects/{effect name}</code>
+
+                <br><br>
+
+                Replace <code>{effect name}</code> with the name of your specific clan name.
+            </p>
+            <br>
+            <pre><code class="json">
+Result example :
+
+{
+    "Trample": {
+        "id": 603,
+        "effectName": "Trample",
+        "effectDescription": "When attacking, excess damage is applied to the subsequent enemy unit.",
+        "imageURL": "https://static.wikia.nocookie.net/monster_train/images/b/b1/Status_Trample.png/revision/latest?cb=20200618030918"
+    },
+    "Quick": {
+        "id": 597,
+        "effectName": "Quick",
+        "effectDescription": "Attacks before enemy units during combat.",
+        "imageURL": "https://static.wikia.nocookie.net/monster_train/images/4/47/Status_Quick.png/revision/latest?cb=20200528181023"
+    },
+    "Immobile": {
+        "id": 592,
+        "effectName": "Immobile",
+        "effectDescription": "Can't move between floors or change position on this floor.",
+        "imageURL": "https://static.wikia.nocookie.net/monster_train/images/f/fd/Status_Immobile.png/revision/latest?cb=20200528181014"
+    },
+    ...
+}
+                </code></pre>
+            <h4>EFFECT MODEL</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>effectDescription</td>
+                    <td>String</td>
+                    <td>The in-game description of the effect.</td>
+                </tr>
+                <tr>
+                    <td>effectName</td>
+                    <td>String</td>
+                    <td>The effect's in-game name. This field is also used to request a specific effect.</td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>Integer</td>
+                    <td>The effect's ID. This is not the in-game ID.</td>
+                </tr>
+                <tr>
+                    <td>imageURL</td>
+                    <td>String</td>
+                    <td>The effect's official image URL.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Enemies -->
+        <div class="overflow-hidden content-section" id="content-get-enemies">
+            <h2>GET Enemies</h2>
+            <pre><code class="bash">
+# curl example for get all enemies
+curl -X GET "https://www.mt-api.tech/api/v1/enemies" -H "accept: */*"
+
+
+# curl example for a specific effects
+curl -X GET "https://www.mt-api.tech/api/v1/enemies/lightwings" \
+-H "accept: */*"
+                </code></pre>
+            <p>
+                To get all enemies, you need to make a GET call to the following url :<br>
+                <code class="higlighted break-word">https://www.mt-api.tech/api/v1/enemies</code>
+            </p>
+            <p>
+                To get a specific enemy, you need to make a GET call to the following url :<br>
+                <code class="higlighted break-word">https://www.mt-api.tech/api/v1/enemies/{enemy name}</code>
+
+                <br><br>
+
+                Replace <code>{enemy name}</code> with the name of your specific enemy.
+            </p>
+            <p>
+                Please note that the type field is always null for right now.
+            </p>
+            <br>
+            <pre><code class="json">
+Result example :
+
+{
+    "Trusted Priest": {
+        "createdAt": "2021-09-18T03:10:56.000+00:00",
+        "updatedAt": "2021-09-18T03:10:56.000+00:00",
+        "id": 304,
+        "enemyName": "Trusted Priest",
+        "enemyLore": "Few human Disciples have been granted direct communion with Seraph's Light. These priests are among this inner circle who have been taught to control Heaven’s power.\r\n",
+        "type": null,
+        "imageURL": "https://s3-us-west-2.amazonaws.com/hades-static-production/v12905/images/5709fe14-007a-4900-84b3-c8d4d9f5f948.png",
+        "damage": 0,
+        "health": 1
+    },
+    "Clipped Reflector": {
+        "createdAt": "2021-09-18T03:11:05.000+00:00",
+        "updatedAt": "2021-09-18T03:11:05.000+00:00",
+        "id": 317,
+        "enemyName": "Clipped Reflector",
+        "enemyLore": "This Clipped’s highly reflective armor and glass barrier provide a unique defense of concentrated, physical light. We tried to employ a similar technique in Hell, but couldn't find a suitable substitute for the rare glass they used.\r\n",
+        "type": null,
+        "imageURL": "https://s3-us-west-2.amazonaws.com/hades-static-production/v12905/images/630f33d3-51cb-4cc1-8bc7-caabfbf80193.png",
+        "damage": 4,
+        "health": 60
+    },
+    "Talos, the Architect": {
+        "createdAt": "2021-09-18T03:10:47.000+00:00",
+        "updatedAt": "2021-09-18T03:10:47.000+00:00",
+        "id": 288,
+        "enemyName": "Talos, the Architect",
+        "enemyLore": "In these visions, I’ve seen crystals used as prisons for souls. “Shardsouls”, they’ve been called. It seems their creator, a human of some ancient renown, created them to split the Divine Titans, but it’s unclear why this happened, what became of the human Exile, or the importance of Humans in this forgotten tragedy.\r\n",
+        "type": null,
+        "imageURL": "https://s3-us-west-2.amazonaws.com/hades-static-production/v12905/images/8c49e54a-b2f6-406f-9893-0b927c53f921.png",
+        "damage": 6,
+        "health": 250
+    },
+    ...
+}
+                </code></pre>
+            <h4>ENEMY MODEL</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>damage</td>
+                    <td>Integer</td>
+                    <td>The enemy's damage value.</td>
+                </tr>
+                <tr>
+                    <td>enemyLore</td>
+                    <td>String</td>
+                    <td>The in-game lore of the enemy.</td>
+                </tr>
+                <tr>
+                    <td>enemyName</td>
+                    <td>String</td>
+                    <td>The enemy's name. This field is used to query a specific enemy.</td>
+                </tr>
+                <tr>
+                    <td>health</td>
+                    <td>Integer</td>
+                    <td>The enemy's health value.</td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>Integer</td>
+                    <td>The enemy's ID. This is not the in-game ID.</td>
+                </tr>
+                <tr>
+                    <td>imageURL</td>
+                    <td>String</td>
+                    <td>The effect's official image URL.</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>String</td>
+                    <td>The enemy's in-game classification.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Mutator -->
+        <div class="overflow-hidden content-section" id="content-get-mutators">
+            <h2>GET Mutators</h2>
+            <pre><code class="bash">
+# curl example for get all mutators
+curl -X GET "https://www.mt-api.tech/api/v1/mutators" -H "accept: */*"
+
+
+# curl example for a specific mutator
+curl -X GET "https://www.mt-api.tech/api/v1/mutators/heavy" \
+-H "accept: */*"
+                </code></pre>
+            <p>
+                To get all mutators, you need to make a GET call to the following url :<br>
+                <code class="higlighted break-word">https://www.mt-api.tech/api/v1/mutators</code>
+            </p>
+            <p>
+                To get a specific mutator, you need to make a GET call to the following url :<br>
+                <code class="higlighted break-word">https://www.mt-api.tech/api/v1/mutators/{mutator name}</code>
+
+                <br><br>
+
+                Replace <code>{mutator name}</code> with the name of your specific mutator.
+            </p>
+            <br>
+            <pre><code class="json">
+Result example :
+
+{
+    "Two for One": {
+        "createdAt": "2021-10-04T02:50:28.000+00:00",
+        "updatedAt": "2021-10-04T02:50:28.000+00:00",
+        "id": 696,
+        "mutatorName": "Two for One",
+        "mutatorDescription": "Each time you draft a card, gain a second copy.",
+        "imageURL": "https://s3-us-west-2.amazonaws.com/hades-static-production/v12905/images/ee32b5c9-c46d-4146-8cb3-c8b811e555dc.png"
+    },
+    "Heavy": {
+        "createdAt": "2021-10-04T02:50:27.000+00:00",
+        "updatedAt": "2021-10-04T02:50:27.000+00:00",
+        "id": 693,
+        "mutatorName": "Heavy",
+        "mutatorDescription": "Add 5 <b>Deadweights</b> to your starting deck.",
+        "imageURL": "https://s3-us-west-2.amazonaws.com/hades-static-production/v12905/images/0b429c83-1013-4a09-80e1-eae07e1e5371.png"
+    },
+    "Upgraded Drafts": {
+        "createdAt": "2021-10-04T02:50:30.000+00:00",
+        "updatedAt": "2021-10-04T02:50:30.000+00:00",
+        "id": 698,
+        "mutatorName": "Upgraded Drafts",
+        "mutatorDescription": "Cards in reward packs and unit banners come with a random upgrade.",
+        "imageURL": "https://s3-us-west-2.amazonaws.com/hades-static-production/v12905/images/d9a96deb-bbb3-4f0a-9c30-19fac8d04ee8.png"
+    },
+    ...
+}
+                </code></pre>
+            <h4>MUTATOR MODEL</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>mutatorDescription</td>
+                    <td>String</td>
+                    <td>The in-game description of the mutator.</td>
+                </tr>
+                <tr>
+                    <td>mutatorName</td>
+                    <td>String</td>
+                    <td>The in-game damage name of the mutator. This field is also used to query a specific
+                        mutator.</td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>Integer</td>
+                    <td>The mutator's ID. This is not the in-game ID.</td>
+                </tr>
+                <tr>
+                    <td>imageURL</td>
+                    <td>String</td>
+                    <td>The official image URL of the mutator.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Sins -->
+        <div class="overflow-hidden content-section" id="content-get-sins">
+            <h2>GET Sins</h2>
+            <pre><code class="bash">
+# curl example for get all sins
+curl -X GET "https://www.mt-api.tech/api/v1/sins" -H "accept: */*"
+
+
+# curl example for a specific sin
+curl -X GET "https://www.mt-api.tech/api/v1/sins/disruption" \
+-H "accept: */*"
+                </code></pre>
+            <p>
+                To get all sins, you need to make a GET call to the following url :<br>
+                <code class="higlighted break-word">https://www.mt-api.tech/api/v1/sins</code>
+            </p>
+            <p>
+                To get a specific sin, you need to make a GET call to the following url :<br>
+                <code class="higlighted break-word">https://www.mt-api.tech/api/v1/sins/{sin name}</code>
+
+                <br><br>
+
+                Replace <code>{sin name}</code> with the name of your specific sin.
+            </p>
+            <br>
+            <pre><code class="json">
+Result example :
+
+{
+    "Sin of Failure": {
+        "createdAt": "2021-10-04T02:50:47.000+00:00",
+        "updatedAt": "2021-10-04T02:50:47.000+00:00",
+        "id": 725,
+        "sinName": "Sin of Failure",
+        "sinDescription": "Archus will summon Looming Darkshard and Shattering Darkshard.",
+        "imageURL": "https://s3-us-west-2.amazonaws.com/hades-static-production/v12905/images/11d515d7-232f-4dd4-b6a3-4173c35c0c9a.png"
+    },
+    "Seal of Aggression": {
+        "createdAt": "2021-10-04T02:50:33.000+00:00",
+        "updatedAt": "2021-10-04T02:50:33.000+00:00",
+        "id": 703,
+        "sinName": "Seal of Aggression",
+        "sinDescription": "Non-boss enemy units get Multistrike.",
+        "imageURL": "https://s3-us-west-2.amazonaws.com/hades-static-production/v12905/images/8ffd2422-7707-4679-bb13-8e847c462437.png"
+    },
+    "Armor Emblem": {
+        "createdAt": "2021-10-04T02:50:35.000+00:00",
+        "updatedAt": "2021-10-04T02:50:35.000+00:00",
+        "id": 705,
+        "sinName": "Armor Emblem",
+        "sinDescription": "Enemy units enter with Armor 10.",
+        "imageURL": "https://s3-us-west-2.amazonaws.com/hades-static-production/v12905/images/50fea1d3-2915-41c5-a222-55fac9b54bf7.png"
+    },
+    ...
+}
+                </code></pre>
+            <h4>SIN MODEL</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>sinDescription</td>
+                    <td>String</td>
+                    <td>The in-game description of the sin.</td>
+                </tr>
+                <tr>
+                    <td>sinName</td>
+                    <td>String</td>
+                    <td>The in-game name of the sin. This field is also used to query a specific sin.</td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>Integer</td>
+                    <td>The sin's ID. This is not the in-game ID.</td>
+                </tr>
+                <tr>
+                    <td>imageURL</td>
+                    <td>String</td>
+                    <td>The official image URL of the sin.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Spell Card -->
+        <div class="overflow-hidden content-section" id="content-get-sc">
+            <h2>GET Spell Cards</h2>
+            <pre><code class="bash">
+# curl example for get all spell cards
+curl -X GET "https://www.mt-api.tech/api/v1/spell-cards" -H "accept: */*"
+
+
+# curl example for a specific spell card
+curl -X GET "https://www.mt-api.tech/api/v1/spell-card/sting" \
+-H "accept: */*"
+                </code></pre>
+            <p>
+                To get all spell cards, you need to make a GET call to the following url :<br>
+                <code class="higlighted break-word">https://www.mt-api.tech/api/v1/spell-cards</code>
+            </p>
+            <p>
+                To get a specific spell card, you need to make a GET call to the following url :<br>
+                <code class="higlighted break-word">https://www.mt-api.tech/api/v1/spell-card/{spell name}</code>
+
+                <br><br>
+
+                Replace <code>{spell name}</code> with the name of your specific spell card.
+            </p>
+            <p>
+                Please refer to the card section for more information on the spell card's response.
+            </p>
+            <br>
+            <pre><code class="json">
+Result example :
+
+{
+    "Imp-olate": {
+        "createdAt": "2021-09-18T02:45:36.000+00:00",
+        "updatedAt": "2021-09-18T02:45:36.000+00:00",
+        "id": 127,
+        "cardName": "Imp-olate",
+        "cardLore": "“Imps die for their horns to grow large. Demons die for their horns to grow sharp.” -excerpt from Hell’s Horns by Grrrg Onehorn, discussing the cyclical life of a Hellhorned and how their horns mature.\r\n",
+        "type": "Spell",
+        "subtype": "Spell",
+        "rarity": 2,
+        "clan": null,
+        "emberCost": 1,
+        "imageURL": "https://s3-us-west-2.amazonaws.com/hades-static-production/v12905/images/e6e77821-f0c2-4d76-bc7f-2efece0e065f-en-US.png",
+        "description": "Deal damage to the front enemy unit equal to 15x the number of Imp units in your deck."
+    },
+    "Titan’s Gratitude": {
+        "createdAt": "2021-09-18T02:47:05.000+00:00",
+        "updatedAt": "2021-09-18T02:47:05.000+00:00",
+        "id": 243,
+        "cardName": "Titan’s Gratitude",
+        "cardLore": "From what Tethys has told me, the Unnamed below is not dead, but it is also not quite alive. The Stygian take responsibility for its well-being by providing sustenance, in return for occasional protection in the form of expelled energy.\r\n",
+        "type": "Spell",
+        "subtype": "Spell",
+        "rarity": 0,
+        "clan": null,
+        "emberCost": 1,
+        "imageURL": "https://s3-us-west-2.amazonaws.com/hades-static-production/v12905/images/9de23f57-7471-4c57-9b2e-b47f17e5f278-en-US.png",
+        "description": "Attuned.\r\n\r\nDeal 25 damage to the front enemy unit.\r\n\r\nDiscard a card at random."
+    },
+    ...
+}
+                </code></pre>
+            <h4>SPELL CARD MODEL (CHILD CLASS OF CARD)</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+            </table>
+            <p>
+                As of right now, the spell card is the same as the card class, except
+                the type is set to Spell after construction.
+            </p>
+        </div>
+        <!-- Triggers -->
+        <div class="overflow-hidden content-section" id="content-get-triggers">
+            <h2>GET Triggers</h2>
+            <pre><code class="bash">
+# curl example for get all triggers
+curl -X GET "https://www.mt-api.tech/api/v1/status/triggers" -H "accept: */*"
+
+
+# curl example for a specific trigger
+curl -X GET "https://www.mt-api.tech/api/v1/trigger/hatch" \
+-H "accept: */*"
+                </code></pre>
+            <p>
+                To get all spell cards, you need to make a GET call to the following url :<br>
+                <code class="higlighted break-word">https://www.mt-api.tech/api/v1/status/triggers</code>
+            </p>
+            <p>
+                To get a specific sin, you need to make a GET call to the following url :<br>
+                <code
+                        class="higlighted break-word">https://www.mt-api.tech/api/v1/status/trigger/{trigger name}</code>
+
+                <br><br>
+
+                Replace <code>{trigger name}</code> with the name of your specific trigger.
+            </p>
+            <br>
+            <pre><code class="json">
+Result example :
+
+{
+    "End of Turn": {
+        "id": 730,
+        "triggerName": "End of Turn",
+        "triggerDescription": "Triggers at end of turn.",
+        "imageURL": "https://static.wikia.nocookie.net/monster_train/images/4/48/Status_End_of_Turn.png/revision/latest?cb=20200528181003"
+    },
+    "Action": {
+        "id": 727,
+        "triggerName": "Action",
+        "triggerDescription": "Triggers at the start of this unit's turn.",
+        "imageURL": "https://static.wikia.nocookie.net/monster_train/images/c/ca/Status_Action.png/revision/latest?cb=20200903224019"
+    },
+    "Hatch": {
+        "id": 735,
+        "triggerName": "Hatch",
+        "triggerDescription": "Once all Shell is removed, the unit dies, triggering its Hatch ability. Apply the Egg unit's upgrades and stat changes to the summoned unit.",
+        "imageURL": "https://static.wikia.nocookie.net/monster_train/images/e/ec/Status_Hatch.png/revision/latest?cb=20210711234531"
+    },
+    ...
+}
+                </code></pre>
+            <h4>TRIGGER MODEL</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>triggerDescription</td>
+                    <td>String</td>
+                    <td>The in-game description of the trigger.</td>
+                </tr>
+                <tr>
+                    <td>triggerName</td>
+                    <td>String</td>
+                    <td>The in-game name of the trigger. This field is also used to query a specific trigger.
+                    </td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>Integer</td>
+                    <td>The trigger's ID. This is not the in-game ID.</td>
+                </tr>
+                <tr>
+                    <td>imageURL</td>
+                    <td>String</td>
+                    <td>The official image URL of the trigger.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="content-code"></div>
 </div>
-
 <!-- Github Corner Ribbon - to remove (Ribbon created with : http://tholman.com/github-corners/ )-->
-<a href="https://github.com/zakpruitt/mt-api" class="github-corner"
-   aria-label="View source on Github" title="View source on Github"><svg width="80" height="80"
-                                                                         viewBox="0 0 250 250"
-                                                                         style="z-index:99999; fill:#70B7FD; color:#fff; position: fixed; top: 0; border: 0; right: 0;"
-                                                                         aria-hidden="true">
+<a href="https://github.com/zakpruitt/mt-api" class="github-corner" aria-label="View source on Github"
+   title="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250"
+                                      style="z-index:99999; fill:#70B7FD; color:#fff; position: fixed; top: 0; border: 0; right: 0;"
+                                      aria-hidden="true">
     <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
     <path
             d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
@@ -745,8 +1384,7 @@ Result example :
         }
     </style>
 <!-- END Github Corner Ribbon - to remove -->
-
-<script href="/scripts.js"></script>
+<script src="js/script.js"></script>
 </body>
 
 </html>
