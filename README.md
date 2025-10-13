@@ -1,22 +1,5 @@
 # Monster Train API
 
-## 📋 Template
-This README follows a lightweight template:
-1. **Project Overview**
-2. **Features**
-3. **Tech Stack**
-4. **Getting Started**
-   - Prerequisites
-   - Installation
-   - Configuration
-   - Run Locally
-   - Run Tests
-5. **API Documentation**
-6. **Project Structure**
-7. **Contributing**
-8. **License**
-9. **Contact**
-
 ## 1. Project Overview
 The Monster Train API is a Spring Boot application that exposes curated, machine-readable data from Shiny Shoe's *Monster Train*. The service aggregates cards, artifacts, clans, mutators, enemies, and related metadata through a consistent REST interface, making it easy to build custom tooling, dashboards, or companion apps around Monster Train content.
 
